@@ -1,0 +1,5 @@
+tarxf http://ftp.gnu.org/gnu/binutils/ binutils-2.21 .tar.bz2
+CC=$R/bin/musl-gcc ./configure --prefix=/ --disable-nls
+echo "#define __pid_t int" >include/features.h
+make CC=$R/bin/musl-gcc
+make DESTDIR=$R tooldir=/ install

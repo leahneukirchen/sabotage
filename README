@@ -1,0 +1,29 @@
+This is sabotage, an experimental distribution based on musl libc and busybox.
+
+Requirements:
+- Only tested on x86_64, i386 shouldn't be hard to port.
+- ~4G disk space
+- root access
+- usual GCC toolchain
+- lots of time and a fair bit of Linux knowledge
+
+This system has been built on up-to-date Gentoo and Arch systems.
+
+Build instructions:  Caveat emptor, this is all pre-alpha!
+DO NOT RUN SCRIPTS YOU HAVE NOT READ.
+
+% cp KEEP/config.stage0 config
+% vi config
+  $K  directory with patches
+  $S  where sources are compiled (stage0: ~700MB, stage1: ~2.6GB)
+  $R  root file system
+
+% . ./config       # required!
+
+% ./stage0         # build toolchain
+% ./enter-chroot   # enter $R chrooted, needs root password
+# cd /tmp/src/sabotage   # absolute path required!
+# ./stage1         # rebuild stuff, build kernel
+
+If steps of the stage* scripts fail, you can comment out previous steps.
+But you know that, since you read the scripts, didn't you?

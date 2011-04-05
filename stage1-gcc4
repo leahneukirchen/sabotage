@@ -1,0 +1,11 @@
+cd $S
+wget -c ftp://ftp.mpi-sb.mpg.de/pub/gnu/mirror/gcc.gnu.org/pub/gcc/releases/gcc-4.5.2/gcc-core-4.5.2.tar.bz2
+rm -rf gcc-4.5.2
+tar xf gcc-core-4.5.2.tar.bz2
+cd gcc-4.5.2
+
+sed -i 's@\./fixinc\.sh@-c true@' gcc/Makefile.in
+CFLAGS=-D_GNU_SOURCE ./configure --with-newlib --with-headers=no --prefix=/ --disable-multilib --disable-nls --disable-shared --disable-mudflap --disable-libmudflap --libdir=/lib --libexecdir=/lib --mandir=/share/man --infodir=/share/info
+make BOOT_LDFLAGS="-static" bootstrap
+make install
+ln -s gcc /bin/cc

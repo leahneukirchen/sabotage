@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ $UID -ne 0 ]; then
+  su -c $0
+  exit $?
+fi
+
+export H=$(pwd)
+. $H/config
+
+mount --rbind /dev $R/dev
+mount --rbind /proc $R/proc
+
+echo "Entering chroot..."
+SHELL=/bin/sh chroot $R /bin/sh

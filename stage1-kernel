@@ -1,0 +1,15 @@
+cd $R/src
+wget -c http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.38.2.tar.bz2
+tar xf linux-2.6.38.2.tar.bz2
+ln -sf linux-2.6.38.2 linux
+cd linux
+
+cp $K/kernel.config .config
+# FIXME: xz compression doesn't work with busybox.
+make HOSTCFLAGS=-D_GNU_SOURCE oldconfig
+make HOSTCFLAGS=-D_GNU_SOURCE 
+
+make install
+make modules_install
+make HOSTCFLAGS=-D_GNU_SOURCE headers_install
+cp -r $R/src/linux/usr/include/* $R/include/

@@ -1,0 +1,6 @@
+rm -rf $R
+mkdir -p $S $R
+
+cd $R
+mkdir -p boot bin dev etc home lib mnt proc root share srv src sys tmp var/empty
+ln -s . usr

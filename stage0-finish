@@ -1,0 +1,12 @@
+mkdir -p $R/tmp/src/sabotage
+
+cp -r $K $R/tmp/src/KEEP
+cp -r $H/* $R/tmp/src/sabotage
+
+cp $K/config.stage1 $R/tmp/src/sabotage/config
+
+cp /usr/include/sysexits.h $R/include
+
+cp -r $S/*.tar.* $S/musl $R/tmp/src
+
+cp /etc/resolv.conf $R/etc

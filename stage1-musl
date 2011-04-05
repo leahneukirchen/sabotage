@@ -1,0 +1,4 @@
+cd $S/musl
+
+make CC=$R/bin/gcc
+make install

@@ -1,0 +1,5 @@
+tarxf http://ftp.gnu.org/gnu/m4/ m4-1.4.16 .tar.bz2
+patch -p1 <$K/m4-hack-gnulib.patch
+./configure --prefix=/
+make
+make install

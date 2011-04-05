@@ -1,0 +1,8 @@
+cd $S
+rm -rf musl
+git clone https://github.com/chneukirchen/musl-chris2.git musl
+cd musl
+cp $K/musl.config.mak config.mak
+
+make CC=$R/bin/gcc
+make install

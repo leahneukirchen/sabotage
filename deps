@@ -1,0 +1,5 @@
+stage1-gmp      stage1-m4
+stage1-mpfr     stage1-gmp
+stage1-mpc      stage1-gmp stage1-mpfr
+stage1-gcc4     stage1-m4 stage1-gawk stage1-gmp stage1-mpfr stage1-mpc
+stage1-kernel   stage1-sed stage1-perl stage1-gcc4

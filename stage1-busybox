@@ -1,0 +1,7 @@
+tarxf http://www.busybox.net/downloads/ busybox-1.18.4 .tar.bz2
+
+cp $K/busybox.stage1.config .config
+patch -p1 <$K/busybox.patch
+make HOSTCFLAGS=-D_GNU_SOURCE
+cp busybox $R/bin
+$R/bin/busybox --install $R/bin
