@@ -97,27 +97,3 @@ diff -aur busybox-1.18.4.orig/util-linux/fdisk.c busybox-1.18.4/util-linux/fdisk
  		fdisk_fatal(unable_to_seek);
  #else
  	uint64_t off = (uint64_t)secno * sector_size;
-diff -aur busybox-1.18.4.orig/util-linux/mount.c busybox-1.18.4/util-linux/mount.c
---- busybox-1.18.4.orig/util-linux/mount.c	2011-03-13 02:45:40.000000000 +0100
-+++ busybox-1.18.4/util-linux/mount.c	2011-04-05 23:35:13.401907038 +0200
-@@ -78,7 +78,7 @@
- #endif
- 
- 
--#if defined(__dietlibc__)
-+#if defined(__dietlibc__) || defined(__musl__)
- // 16.12.2006, Sampo Kellomaki (sampo@iki.fi)
- // dietlibc-0.30 does not have implementation of getmntent_r()
- static struct mntent *getmntent_r(FILE* stream, struct mntent* result,
-diff -aur busybox-1.18.4.orig/util-linux/umount.c busybox-1.18.4/util-linux/umount.c
---- busybox-1.18.4.orig/util-linux/umount.c	2011-03-13 02:45:06.000000000 +0100
-+++ busybox-1.18.4/util-linux/umount.c	2011-04-05 23:35:13.405240358 +0200
-@@ -11,7 +11,7 @@
- #include <sys/mount.h>
- #include "libbb.h"
- 
--#if defined(__dietlibc__)
-+#if defined(__dietlibc__) || defined(__musl__)
- // TODO: This does not belong here.
- /* 16.12.2006, Sampo Kellomaki (sampo@iki.fi)
-  * dietlibc-0.30 does not have implementation of getmntent_r() */
