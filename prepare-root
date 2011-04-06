@@ -2,5 +2,6 @@ rm -rf $R
 mkdir -p $S $R
 
 cd $R
-mkdir -p boot bin dev etc home lib mnt proc root share srv src sys tmp var/empty
+mkdir -p boot bin dev etc home lib mnt proc root share srv src sys tmp var
+mkdir -p var/log var/empty var/services
 ln -s . usr

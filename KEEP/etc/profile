@@ -1,0 +1,6 @@
+# /etc/profile
+
+umask 022
+
+PATH="/local/bin:/bin"
+export PATH

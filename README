@@ -27,3 +27,5 @@ DO NOT RUN SCRIPTS YOU HAVE NOT READ.
 
 If steps of the stage* scripts fail, you can comment out previous steps.
 But you know that, since you read the scripts, didn't you?
+
+The default root password is "sabotage".

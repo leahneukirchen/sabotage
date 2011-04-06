@@ -1,0 +1,23 @@
+#!/bin/sh
+PATH=/bin
+
+echo shutting down
+
+hwclock -u -w
+
+killall5 -15
+sleep 5
+killall5 -9
+
+dd if=/dev/urandom of=/etc/random-seed count=1 bs=512 2>/dev/null
+
+#swapoff -a
+umount -a -r
+echo mounting / read-only
+mount -o remount,ro /
+
+sync
+sleep 1
+wait
+
+echo bye
