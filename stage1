@@ -21,3 +21,6 @@ export H=$(pwd)
 . $H/stage1-kernel
 
 . $H/stage1-busybox
+
+. $H/stage1-pkg-config
+. $H/stage1-e2fsprogs

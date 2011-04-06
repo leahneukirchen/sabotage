@@ -11,9 +11,10 @@ killall5 -9
 
 dd if=/dev/urandom of=/etc/random-seed count=1 bs=512 2>/dev/null
 
-#swapoff -a
-umount -a -r
+swapoff -a
+
 echo mounting / read-only
+umount -a -r
 mount -o remount,ro /
 
 sync
