@@ -1,6 +1,6 @@
 tarxf ftp://ftp.gnu.org/pub/gnu/gawk/ gawk-3.1.8 .tar.bz2
 # Hack out the test for dynamic linking
 sed -i 's/dlfcn/dlXXXXXcn/g' configure
-./configure --prefix=/ --disable-nls
+./configure --prefix=/ --libexecdir=/lib --disable-nls
 make
 make install
