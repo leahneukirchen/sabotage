@@ -2,5 +2,10 @@
 
 umask 022
 
+# http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap08.html#tag_08_03
+TZ="UTC"                              # Coordinated Universal Time
+#TZ="CET-1CEST,M.0.5.3,M.0.5.10"      # Central European (Summer) Time
+
 PATH="/local/bin:/bin"
-export PATH
+
+export PATH TZ
