@@ -1,5 +1,6 @@
-cp $K/etc/* $R/etc
-cp $K/runsvdir-start* $R/bin
+cp $K/extlinux.conf $R/boot/
+cp $K/runsvdir-start $R/bin/
+cp $K/etc/* $R/etc/
 
 mkdir -p $R/tmp/src/sabotage
 

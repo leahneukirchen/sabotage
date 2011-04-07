@@ -1,4 +1,4 @@
-rm -rf $R
+mountpoint -q $R || rm -rf $R
 mkdir -p $S $R
 
 cd $R
