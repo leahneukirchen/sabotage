@@ -3,3 +3,7 @@ stage1-mpfr     stage1-gmp
 stage1-mpc      stage1-gmp stage1-mpfr
 stage1-gcc4     stage1-m4 stage1-gawk stage1-gmp stage1-mpfr stage1-mpc
 stage1-kernel   stage1-sed stage1-perl stage1-gcc4
+
+stage1-e2fsprogs stage1-pkg-config
+
+stage1-openssh  stage1-zlib stage1-openssl

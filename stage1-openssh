@@ -1,0 +1,19 @@
+tarxf http://ftp.spline.de/pub/OpenBSD/OpenSSH/portable/ openssh-5.8p1 .tar.gz
+
+cp $K/openssh-hacks.h .
+CFLAGS="-include openssh-hacks.h -D_BSD_SOURCE -DMISSING_HOWMANY -DMISSING_FD_MASK -DMISSING_NFDBITS" ./configure --prefix=/ --libexecdir=/lib/ssh \
+  --sysconfdir=/etc/ssh --with-privsep-user=nobody \
+  --with-md5-passwords --with-mantype=man --mandir=/share/man \
+  --disable-strip --disable-lastlog --disable-utmpx --disable-btmp
+
+mkdir netinet
+touch netinet/in_systm.h
+
+sed -i '/USE_BTMP/d' config.h
+
+make
+
+chown root:root /var/empty
+chmod 0755 /var/empty
+
+make install

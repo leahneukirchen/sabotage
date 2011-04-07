@@ -1,0 +1,9 @@
+tarxf http://www.openssl.org/source/ openssl-1.0.0d .tar.gz
+
+sed -i '/^"linux-x86_64/s/-DTERMIO/-DTERMIOS/' Configure
+sed -i 's/defined(linux)/0/' crypto/ui/ui_openssl.c
+./config --prefix=/ --openssldir=/etc/ssl --libdir=lib no-shared no-dso zlib enable-md2 -Wa,--noexecstack
+touch include/memory.h
+make depend
+make
+make install

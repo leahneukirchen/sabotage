@@ -1,0 +1,9 @@
+tarxf http://zlib.net/ zlib-1.2.5 .tar.gz
+./configure --prefix=/ --static
+
+make
+# make install is broken
+ranlib libz.a
+cp libz.a $R/lib
+touch install-libs
+make install
