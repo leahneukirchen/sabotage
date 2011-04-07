@@ -18,3 +18,4 @@ chown root:root /var/empty
 chmod 0755 /var/empty
 
 make install
+mkdir /var/log/sshd

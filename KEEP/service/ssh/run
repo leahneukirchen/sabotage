@@ -1,0 +1,8 @@
+#!/bin/sh
+
+[ -f /etc/ssh/ssh_host_key ] || ssh-keygen -t rsa1 -N "" -f /etc/ssh/ssh_host_key
+[ -f /etc/ssh/ssh_host_rsa_key ] || ssh-keygen -t rsa -N "" -f /etc/ssh/ssh_host_rsa_key
+[ -f /etc/ssh/ssh_host_dsa_key ] || ssh-keygen -t dsa -N "" -f /etc/ssh/ssh_host_dsa_key
+[ -f /etc/ssh/ssh_host_ecdsa_key ] || ssh-keygen -t ecdsa -N "" -f /etc/ssh/ssh_host_ecdsa_key
+
+exec /bin/sshd -D -e
