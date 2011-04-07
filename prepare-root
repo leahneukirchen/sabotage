@@ -3,5 +3,5 @@ mkdir -p $S $R
 
 cd $R
 mkdir -p boot bin dev etc home lib mnt proc root share srv src sys tmp var
-mkdir -p var/log var/empty var/services
+mkdir -p var/log var/empty var/service
 ln -s . usr

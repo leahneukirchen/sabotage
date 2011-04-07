@@ -1,6 +1,7 @@
 cp $K/extlinux.conf $R/boot/
 cp $K/runsvdir-start $R/bin/
 cp $K/etc/* $R/etc/
+cp -r $K/service/* $R/var/service
 
 mkdir -p $R/tmp/src/sabotage
 
