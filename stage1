@@ -30,3 +30,6 @@ export H=$(pwd)
 . $H/stage1-zlib
 . $H/stage1-openssl
 . $H/stage1-openssh
+
+. $H/stage1-curl
+. $H/stage1-git

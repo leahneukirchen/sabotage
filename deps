@@ -7,3 +7,8 @@ stage1-kernel   stage1-sed stage1-perl stage1-gcc4
 stage1-e2fsprogs stage1-pkg-config
 
 stage1-openssh  stage1-zlib stage1-openssl
+
+stage1-extlinux stage1-perl
+
+stage1-curl     stage1-openssl
+stage1-git      stage1-curl
