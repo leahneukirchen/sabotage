@@ -1,7 +1,5 @@
 tarxf http://www.kernel.org/pub/software/scm/git/ git-1.7.4 .tar.bz2
 
-CFLAGS=-DNULL=0 ./configure --prefix=/ --libexecdir=/lib
-# git doesn't detect static curl properly
-sed -i /NO_CURL/d config.mak.autogen 
-make CURL_LIBCURL="/lib/libcurl.a /lib/libssl.a /lib/libcrypto.a" \
-  NO_TCLTK=1 NO_PYTHON=1 install
+make CURL_LIBCURL="/lib/libcurl.a /lib/libssl.a /lib/libcrypto.a"
+  prefix=/ gitexecdir=/lib/git-core \
+  NO_TCLTK=1 NO_PYTHON=1 NO_PTHREADS=1 NO_MEMMEM=1 NO_EXPAT=1 all install
