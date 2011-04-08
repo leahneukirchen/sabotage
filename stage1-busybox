@@ -4,4 +4,5 @@ cp $K/busybox.stage1.config .config
 patch -p1 <$K/busybox.patch
 make HOSTCFLAGS=-D_GNU_SOURCE
 cp busybox $R/bin
-$R/bin/busybox --install $R/bin
+cd $R/bin
+for f in $(./busybox --list); do ln -sf busybox $f; done
