@@ -33,3 +33,5 @@ export H=$(pwd)
 
 . $H/stage1-curl
 . $H/stage1-git
+
+. $H/stage1-9base

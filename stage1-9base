@@ -1,0 +1,17 @@
+tarxf http://dl.suckless.org/tools/ 9base-6 .tar.gz
+echo "PREFIX = /" >>config.mk
+echo "CFLAGS += -D_GNU_SOURCE -DPLAN9PORT" >>config.mk
+echo "OBJTYPE = x86_64" >>config.mk
+
+sed -i 's/__linux__/__not_linux__/;s/__sun__/__linux__/' lib9/dirread.c
+sed -i '/sys.termios.h/d' lib9/readcons.c
+sed -i '/^.touch./d' Makefile  # we don't have futimes
+
+make
+
+# only install things not sufficently well-provided by busybox
+for f in ascii bc cleanname dc ed factor fmt freq getflags hoc join \
+         look mk mtime pbd primes rc read sam troff unicode
+do
+  make -C $f install
+done
