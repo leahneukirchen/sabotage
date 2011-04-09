@@ -14,6 +14,7 @@ hwclock -u -s
 swapon -a
 
 hostname $(cat /etc/hostname)
+ifconfig lo up
 
 mount -o remount,ro /
 fsck -A -T -C -p
