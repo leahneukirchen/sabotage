@@ -16,6 +16,9 @@ export H=$(pwd)
 
 . $H/stage1-gcc4
 
+. $H/stage1-binutils
+. $H/stage1-make
+
 . $H/stage1-perl
 
 . $H/stage1-kernel
