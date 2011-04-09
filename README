@@ -4,7 +4,8 @@ Requirements:
 - Only tested on x86_64, i386 shouldn't be hard to port.
 - ~4G disk space
 - root access
-- usual GCC toolchain
+- usual GCC 4 toolchain
+- a bootloader of your choice (extlinux is favored)
 - lots of time and a fair bit of Linux knowledge
 
 This system has been built on up-to-date Gentoo and Arch systems.
@@ -15,17 +16,22 @@ DO NOT RUN SCRIPTS YOU HAVE NOT READ.
 % cp KEEP/config.stage0 config
 % vi config
   $K  directory with patches
-  $S  where sources are compiled (stage0: ~700MB, stage1: ~2.6GB)
+  $S  where sources are compiled (stage0: ~700MB, stage1: ~2.1GB)
   $R  root file system
 
 % . ./config       # required!
 
-% ./stage0         # build toolchain
+% ./stage0         # build toolchain (~15min on a modern machine)
 % ./enter-chroot   # enter $R chrooted, needs root password
 # cd /tmp/src/sabotage   # absolute path required!
-# ./stage1         # rebuild stuff, build kernel
+# ./stage1         # rebuild stuff, build kernel (~1h)
+copy $R to a ext4 file-system
+# extlinux -i $R/boot
 
 If steps of the stage* scripts fail, you can comment out previous steps.
 But you know that, since you read the scripts, didn't you?
+
+The build is parallel-safe (MAKEOPTS=-jN), but all packages are build
+sequentially.
 
 The default root password is "sabotage".
