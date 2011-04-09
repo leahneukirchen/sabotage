@@ -3,6 +3,6 @@ mkdir -p $S $R
 
 cd $R
 mkdir -p boot bin dev etc home lib mnt proc root share srv src sys tmp var
-mkdir -p var/log var/empty var/service var/tmp
+mkdir -p var/log var/log/sshd var/log/dmesg var/empty var/service var/tmp
 ln -s . usr
 ln -s bin sbin
