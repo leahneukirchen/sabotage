@@ -21,10 +21,10 @@ DO NOT RUN SCRIPTS YOU HAVE NOT READ.
 
 % . ./config       # required!
 
-% ./stage0         # build toolchain (~15min on a modern machine)
+% ./build-stage0   # build toolchain (~15min on a modern machine)
 % ./enter-chroot   # enter $R chrooted, needs root password
 # cd /tmp/src/sabotage   # absolute path required!
-# ./stage1         # rebuild stuff, build kernel (~1h)
+# ./build-stage1   # rebuild stuff, build kernel (~1h)
 copy $R to a ext4 file-system
 # extlinux -i $R/boot
 
