@@ -1,0 +1,8 @@
+RELEASE=sabotage-$(date -Idate)
+mkdir -p dist/$RELEASE
+for s in base comp doc etc kernel; do
+# tar -czv -T sets/$s -X ignore -f dist/$RELEASE/$s.tar.gz
+  cpio -o -H newc <sets/$s |gzip >dist/$RELEASE/$s.cpio.gz
+  ls -l dist/$RELEASE/$s.cpio.gz
+done
+sha1sum dist/$RELEASE/*.gz >dist/$RELEASE/SHA1SUMS
