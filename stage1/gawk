@@ -4,4 +4,4 @@ sed -i 's/dlfcn/dlXXXXXcn/g' configure
 ./configure --prefix=/ --libexecdir=/lib --disable-nls
 make
 make DESTDIR=$R install
-ln gawk $R/bin/awk
+ln -sf gawk $R/bin/awk

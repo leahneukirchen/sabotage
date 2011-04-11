@@ -1,9 +1,8 @@
 tarxf http://www.cpan.org/src/5.0/ perl-5.12.3 .tar.gz
-http://www.cpan.org/src/perl-5.10.1.tar.bz2
 patch -p1 <$K/perl-disable-siginfo.patch
 
 ./Configure -des -Uusedl -Accflags='-D_GNU_SOURCE' \
-  -Dprefix=/ -Dvendorprefix=/ \
+  -Dprefix=/ -Dvendorprefix=/ -Dinstallprefix=$R \
   -Dprivlib=/share/perl5/core_perl \
   -Darchlib=/lib/perl5/core_perl \
   -Dsitelib=/share/perl5/site_perl \
@@ -17,4 +16,4 @@ patch -p1 <$K/perl-disable-siginfo.patch
   -Dman1ext=1perl -Dman3ext=3perl
 
 make
-make DESTDIR=$R install
+make install
