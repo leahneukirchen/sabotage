@@ -11,6 +11,6 @@ echo $(wc -l /tmp/cs-missing |cut -d" " -f 1) files missing:
 cat /tmp/cs-missing
 echo
 
-echo $(wc -l /tmp/cs-superfluous |cut -d" " -f 1) files missing:
+echo $(wc -l /tmp/cs-superfluous |cut -d" " -f 1) files superfluous:
 cat /tmp/cs-superfluous
 echo
