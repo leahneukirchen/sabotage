@@ -17,4 +17,4 @@ make
 chown root:root /var/empty
 chmod 0755 /var/empty
 
-make install
+make DESTDIR=$R install

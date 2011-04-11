@@ -6,4 +6,4 @@ sed -i 's/defined(linux)/0/' crypto/ui/ui_openssl.c
 touch include/memory.h
 make depend
 make
-make MANDIR=/share/man install
+make INSTALL_PREFIX=$R MANDIR=/share/man install

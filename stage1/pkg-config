@@ -1,4 +1,4 @@
 tarxf http://pkgconfig.freedesktop.org/releases/ pkg-config-0.25 .tar.gz
 ./configure --prefix=/
 make
-make install
+make DESTDIR=$R install

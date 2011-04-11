@@ -5,4 +5,6 @@ patch -p1 <$K/busybox.patch
 make HOSTCFLAGS=-D_GNU_SOURCE
 cp busybox $R/bin
 cd $R/bin
-for f in $(./busybox --list); do ln -sf busybox $f; done
+for f in $(./busybox --list | grep -v awk | grep -v sed); do
+  ln -sf busybox $f
+done

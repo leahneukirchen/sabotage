@@ -9,7 +9,9 @@ cp $K/kernel.config .config
 make HOSTCFLAGS=-D_GNU_SOURCE oldconfig
 make HOSTCFLAGS=-D_GNU_SOURCE 
 
-make install
-make modules_install
+mkdir -p $R/boot $R/lib/modules $R/lib/firmware
+cp System.map $R/boot
+cp arch/x86/boot/bzImage $R/boot/vmlinuz
+make INSTALL_MOD_PATH=$R modules_install
 make HOSTCFLAGS=-D_GNU_SOURCE headers_install
-cp -r $R/src/linux/usr/include/* $R/include/
+cp -r usr/include/* $R/include/

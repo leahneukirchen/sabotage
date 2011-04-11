@@ -13,6 +13,6 @@ make
 for f in ascii bc cleanname dc ed factor fmt freq getflags hoc join \
          look mk mtime pbd primes rc read sam troff unicode
 do
-  make -C $f install
+  make -C $f DESTDIR=$R install
 done
-ln -sf troff /bin/nroff
+ln -sf troff $R/bin/nroff

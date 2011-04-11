@@ -3,4 +3,5 @@ tarxf ftp://ftp.gnu.org/pub/gnu/gawk/ gawk-3.1.8 .tar.bz2
 sed -i 's/dlfcn/dlXXXXXcn/g' configure
 ./configure --prefix=/ --libexecdir=/lib --disable-nls
 make
-make install
+make DESTDIR=$R install
+ln gawk $R/bin/awk
