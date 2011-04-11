@@ -1,0 +1,4 @@
+tarxf ftp://ftp.gnu.org/gnu/patch/ patch-2.6.1 .tar.gz
+./configure --prefix=/
+make
+make DESTDIR=$R install

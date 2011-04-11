@@ -1,0 +1,4 @@
+tarxf ftp://ftp.gnu.org/gnu/diffutils/ diffutils-3.0 .tar.gz
+./configure --prefix=/ --disable-nls
+make
+make DESTDIR=$R install

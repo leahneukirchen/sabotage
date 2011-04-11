@@ -1,0 +1,18 @@
+cd $S
+wget -c ftp://ftp.vim.org/pub/vim/unix/vim-7.3.tar.bz2
+tar xf vim-7.3.tar.bz2
+cd vim73
+
+for n in $(seq -w 001 159); do
+  wget -O - ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.$n | patch -p0
+done
+
+CFLAGS="-D_GNU_SOURCE" ./configure --prefix=/ --mandir=/share/man --localstatedir=/var/lib/vim \
+  --disable-nls --disable-gui --with-x=no --enable-multibyte
+make src/auto/osdef.h
+sed -i '/define stack_t/d' src/auto/config.h
+sed -i '/setenv/d' src/auto/osdef.h
+sed -i '/putenv/d' src/auto/osdef.h
+
+make
+make VIMRCLOC=/etc DESTDIR=$R install

@@ -28,6 +28,8 @@ DO NOT RUN SCRIPTS YOU HAVE NOT READ.
 copy $R to a ext4 file-system
 # extlinux -i $R/boot
 
+# ./build-pkg      # additional stuff
+
 If steps of the stage* scripts fail, you can comment out previous steps.
 But you know that, since you read the scripts, didn't you?
 

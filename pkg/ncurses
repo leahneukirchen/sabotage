@@ -1,0 +1,5 @@
+tarxf http://ftp.gnu.org/pub/gnu/ncurses/ ncurses-5.9 .tar.gz
+CFLAGS=-D_GNU_SOURCE ./configure --prefix=/ --includedir=/include --mandir=/share/man \
+   --disable-nls --without-dlsym --without-cxx-binding
+make
+make DESTDIR=$R install

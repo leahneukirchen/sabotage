@@ -1,0 +1,4 @@
+tarxf ftp://ftp.gnu.org/gnu/bison/ bison-2.4.3 .tar.bz2
+./configure --prefix=/ --disable-nls
+make
+make DESTDIR=$R install
