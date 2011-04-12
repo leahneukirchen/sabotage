@@ -13,7 +13,9 @@ patch -p1 <$K/perl-disable-siginfo.patch
   -Dsitescript=/bin \
   -Dvendorscript=/bin \
   -Dinc_version_list=none \
-  -Dman1ext=1perl -Dman3ext=3perl
+  -Dman1dir=/share/man/man1 -Dman1ext=1perl \
+  -Dman3dir=/share/man/man3 -Dman3ext=3perl
 
-make
+# http://bugs.gentoo.org/show_bug.cgi?id=331113
+make -j1
 make install
