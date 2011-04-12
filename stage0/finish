@@ -13,3 +13,4 @@ cp $K/config.stage1 $R/tmp/src/sabotage/config
 cp -r $S/*.tar.* $S/musl $R/tmp/src
 
 cp /etc/resolv.conf $R/etc
+ln -s /proc/mounts $R/etc/mtab
