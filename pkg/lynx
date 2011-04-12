@@ -1,7 +1,4 @@
-cd $S
-wget -c http://lynx.isc.org/release/lynx2.8.7.tar.gz
-tar xf lynx2.8.7.tar.gz
-cd lynx2-8-7
+tarxf http://lynx.isc.org/release/ lynx2.8.7 .tar.gz lynx2-8-7
 
 ./configure --prefix=/ --sysconfdir=/etc --mandir=/share/man \
   --with-ssl --disable-nls --enable-ipv6

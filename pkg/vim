@@ -1,8 +1,4 @@
-cd $S
-wget -c ftp://ftp.vim.org/pub/vim/unix/vim-7.3.tar.bz2
-rm -rf vim73
-tar xf vim-7.3.tar.bz2
-cd vim73
+tarxf ftp://ftp.vim.org/pub/vim/unix/ vim-7.3 .tar.bz2 vim73
 
 for n in $(seq -w 001 159); do
   wget -O - ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.$n | patch -p0

@@ -1,9 +1,10 @@
 #!/bin/sh
 
+# tarxf http://server/path/to/ file-1 .tar.gz [dirname]
 tarxf() {
   cd $S
   [ -f $2$3 ] || wget -c $1$2$3
-  rm -rf $2
+  rm -rf ${4:-2}
   tar xf $2$3
-  cd $2
+  cd ${4:-2}
 }
