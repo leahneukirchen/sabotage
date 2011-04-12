@@ -17,3 +17,5 @@ export H=$(pwd)
 . $H/pkg/file
 . $H/pkg/vim
 . $H/pkg/lynx
+. $H/pkg/autoconf
+. $H/pkg/automake
