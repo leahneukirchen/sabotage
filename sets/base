@@ -450,6 +450,7 @@
 /boot
 /dev
 /etc
+/etc/mtab
 /etc/ssh
 /etc/ssh/moduli
 /etc/ssl
