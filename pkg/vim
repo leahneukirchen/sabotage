@@ -7,7 +7,7 @@ for n in $(seq -w 001 $PATCHLEVEL); do
 done
 
 CFLAGS="-D_GNU_SOURCE" ./configure --prefix=/ --mandir=/share/man --localstatedir=/var/lib/vim \
-  --disable-nls --disable-gui --with-x=no --enable-multibyte
+  --disable-nls --disable-netbeans --disable-gui --with-x=no --enable-multibyte
 make -C src auto/osdef.h
 sed -i '/define stack_t/d' src/auto/config.h
 sed -i '/setenv/d' src/auto/osdef.h
