@@ -1,4 +1,5 @@
 #!/bin/sh
+# check-sets - show missing and superfluous files
 
 rm -f sets/*~
 cat sets/* |sort |uniq >/tmp/cs-sets
@@ -13,4 +14,3 @@ echo
 
 echo $(wc -l /tmp/cs-superfluous |cut -d" " -f 1) files superfluous:
 cat /tmp/cs-superfluous
-echo

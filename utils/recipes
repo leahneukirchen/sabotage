@@ -1,0 +1,16 @@
+#!/bin/sh
+# recipes - generate mkfile from package recipes
+
+for f in stage1/*[^~] pkg/*[^~]; do
+  DIR=${f%%/*}
+  PKG=${f##*/}
+  echo $DIR:V: $PKG
+  echo $PKG:V: rebuild-$PKG
+  echo rebuild-$PKG:V:
+  echo "  ##### $f"
+  echo "  . config"
+  echo "  . utils"
+  [ -n "$V" ] && echo "  set -x"
+  echo "  . $f"
+  echo
+done
