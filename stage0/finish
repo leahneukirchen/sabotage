@@ -3,10 +3,10 @@ cp $K/runsvdir-start $R/bin/
 cp $K/etc/* $R/etc/
 cp -r $K/service/* $R/var/service
 
-mkdir -p $R/tmp/src/sabotage
+mkdir -p $R/tmp/src
 
 cp -r $K $R/tmp/src/KEEP
-cp -r $H/* $R/tmp/src/sabotage
+cp -r $H $R/tmp/src/sabotage
 
 cp $K/config.stage1 $R/tmp/src/sabotage/config
 
