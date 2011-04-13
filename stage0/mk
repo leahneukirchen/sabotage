@@ -1,0 +1,15 @@
+tarxf http://dl.suckless.org/tools/ 9base-6 .tar.gz
+echo "CC = $R/bin/musl-gcc" >>config.mk
+echo "PREFIX = /" >>config.mk
+echo "CFLAGS += -D_GNU_SOURCE -DPLAN9PORT -idirafter /usr/include" >>config.mk
+echo "OBJTYPE = x86_64" >>config.mk
+
+sed -i 's/__linux__/__not_linux__/;s/__sun__/__linux__/' lib9/dirread.c
+sed -i '/sys.termios.h/d' lib9/readcons.c
+sed -i '/^.touch./d' Makefile  # we don't have futimes
+
+make -C lib9
+make -C mk
+
+# only install mk
+make -C mk DESTDIR=$R install
