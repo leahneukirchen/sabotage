@@ -16,12 +16,12 @@ PATH=utils:$PATH
 
 world:V: stage1 pkg
 
-check-sets:V:
+check-sets:QV:
         utils/check-sets
 
-release:V:
+release:QV:
         utils/release
 
-list:V:
+list:QV:
 	( grep -L tarxf stage1/*[^~] pkg/*[^~] |sed 's:.*/::'
 	awk '/tarxf/{print $3}' stage1/*[^~] pkg/*[^~] ) | sort
