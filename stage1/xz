@@ -1,0 +1,4 @@
+tarxf http://tukaani.org/xz/ xz-5.0.2 .tar.bz2
+./configure --prefix=/ --disable-nls --disable-shared
+make
+make DESTDIR=$R install
