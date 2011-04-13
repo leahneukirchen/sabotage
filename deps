@@ -23,7 +23,6 @@ zlib:        gcc4
 stage1: gcc4 musl busybox 
 
 # pkg (should assume stage1 is completely built)
-autoconf:    perl
 automake:    autoconf
 less:        ncurses
 lynx:        ncurses
