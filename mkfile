@@ -7,6 +7,7 @@ help:QV:
         echo "  rebuild-<pkg>   rebuild single package (V=1 for verbose)"
         echo "  check-sets      show missing and superfluous files"
         echo "  release         make a release (from /)"
+        echo "  list            show all packages"
 
 PATH=utils:$PATH
 <|sed 's/export//' config
@@ -20,3 +21,7 @@ check-sets:V:
 
 release:V:
         utils/release
+
+list:V:
+	( grep -L tarxf stage1/*[^~] pkg/*[^~] |sed 's:.*/::'
+	awk '/tarxf/{print $3}' stage1/*[^~] pkg/*[^~] ) | sort
