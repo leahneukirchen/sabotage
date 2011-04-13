@@ -7,4 +7,4 @@ CFLAGS=-D_GNU_SOURCE ./configure --with-newlib --with-headers=no --prefix=/ \
   --libdir=/lib --libexecdir=/lib --mandir=/share/man --infodir=/share/info
 make BOOT_LDFLAGS="-static" bootstrap
 make DESTDIR=$R install
-ln -s gcc $R/bin/cc
+ln -sf gcc $R/bin/cc
