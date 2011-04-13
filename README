@@ -5,6 +5,7 @@ Requirements:
 - ~4G disk space
 - root access
 - usual GCC 4 toolchain
+- git
 - a bootloader of your choice (extlinux is favored)
 - lots of time and a fair bit of Linux knowledge
 
@@ -24,16 +25,15 @@ DO NOT RUN SCRIPTS YOU HAVE NOT READ.
 % ./build-stage0   # build toolchain (~15min on a modern machine)
 % ./enter-chroot   # enter $R chrooted, needs root password
 # cd /tmp/src/sabotage   # absolute path required!
-# ./build-stage1   # rebuild stuff, build kernel (~1h)
+# mk stage1        # rebuild stuff, build kernel (~1h)
 copy $R to a ext4 file-system
 # extlinux -i $R/boot
 
-# ./build-pkg      # additional stuff
+# mk pkg           # additional additional stuff
 
-If steps of the stage* scripts fail, you can comment out previous steps.
-But you know that, since you read the scripts, didn't you?
+See "mk help" for further options.
 
-The build is parallel-safe (MAKEOPTS=-jN), but all packages are build
+The build is parallel-safe (MAKEFLAGS=-jN), but all packages are build
 sequentially.
 
 The default root password is "sabotage".

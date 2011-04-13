@@ -1,14 +1,30 @@
-stage1-gmp      stage1-m4
-stage1-mpfr     stage1-gmp
-stage1-mpc      stage1-gmp stage1-mpfr
-stage1-gcc4     stage1-m4 stage1-gawk stage1-gmp stage1-mpfr stage1-mpc
-stage1-kernel   stage1-sed stage1-perl stage1-gcc4
+# stage1
+binutils:    gcc4
+busybox:     musl kernel
+curl:        openssl
+e2fsprogs:   pkg-config
+extlinux:    perl
+gcc4:        m4 gawk sed gmp mpfr mpc
+git:         curl
+gmp:         m4
+kernel:      binutils make sed perl gcc4
+make:        gcc4
+mpc:         mpfr
+mpfr:        gmp
+musl:        gcc4 binutils make
+openssh:     zlib openssl
+openssl:     perl
+perl:        musl
+zlib:        gcc4
+pkg-config:  musl
+9base:       musl kernel
 
-stage1-e2fsprogs stage1-pkg-config
+# enforce some coarse ordering to early replace stage0
+stage1: gcc4 musl busybox 
 
-stage1-openssh  stage1-zlib stage1-openssl
-
-stage1-extlinux stage1-perl
-
-stage1-curl     stage1-openssl
-stage1-git      stage1-curl
+# pkg
+autoconf:    perl
+automake:    autoconf
+less:        ncurses
+lynx:        ncurses
+vim:         ncurses
