@@ -4,9 +4,8 @@
 RELEASE=sabotage-$(date -Idate)
 mkdir -p dist/$RELEASE
 for s in base comp doc etc kernel; do
-# tar -czv -T sets/$s -X ignore -f dist/$RELEASE/$s.tar.gz
-  cpio -o -H newc <sets/$s |gzip >dist/$RELEASE/$s.cpio.gz
+  cpio -o -H ustar <sets/$s |xz -e >dist/$RELEASE/$s.tar.xz
   ls -l dist/$RELEASE/$s.cpio.gz
 done
 cd dist/$RELEASE
-sha1sum *.gz >SHA1SUMS
+sha1sum *.*z* >SHA1SUMS
