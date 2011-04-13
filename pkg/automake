@@ -1,5 +1,5 @@
 tarxf ftp://ftp.gnu.org/pub/gnu/automake/ automake-1.11 .tar.bz2
-patch -p1 <$K/autoconf-no-POSIX.patch
+patch -p1 <$K/automake-no-POSIX.patch
 ./configure --prefix=/
 make
 make install
