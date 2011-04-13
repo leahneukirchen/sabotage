@@ -14,5 +14,4 @@ sed -i '/setenv/d' src/auto/osdef.h
 sed -i '/putenv/d' src/auto/osdef.h
 
 make
-rm -f $R/ex $R/rview $R/rvim $R/view $R/vimdiff
-make VIMRCLOC=/etc DESTDIR=$R install
+make -j1 VIMRCLOC=/etc DESTDIR=$R install
