@@ -1,5 +1,7 @@
 # stage1
+9base:       musl kernel
 binutils:    gcc4
+bsdtar:      xz
 busybox:     musl kernel
 curl:        openssl
 e2fsprogs:   pkg-config
@@ -7,22 +9,20 @@ extlinux:    perl
 gcc4:        m4 gawk sed gmp mpfr mpc
 git:         curl
 gmp:         m4
-kernel:      binutils make sed perl gcc4
+kernel:      binutils make sed perl gcc4 xz
 make:        gcc4
 mpc:         mpfr
 mpfr:        gmp
 musl:        gcc4 binutils make
-openssh:     zlib openssl
 openssl:     perl
 perl:        musl
-zlib:        gcc4
 pkg-config:  musl
-9base:       musl kernel
+zlib:        gcc4
 
 # enforce some coarse ordering to early replace stage0
 stage1: gcc4 musl busybox 
 
-# pkg
+# pkg (should assume stage1 is completely built)
 autoconf:    perl
 automake:    autoconf
 less:        ncurses
