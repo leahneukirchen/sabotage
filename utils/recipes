@@ -8,9 +8,11 @@ for f in stage1/*[^~] pkg/*[^~]; do
   echo $PKG:V: rebuild-$PKG
   echo rebuild-$PKG:V:
   echo "  ##### $f"
-  echo "  . config"
-  echo "  . utils"
-  [ -n "$V" ] && echo "  set -x"
-  echo "  . $f"
-  echo
+  if [ -z "$N" ]; then
+    echo "  . config"
+    echo "  . utils"
+    [ -n "$V" ] && echo "  set -x"
+    echo "  . $f"
+    echo
+  fi
 done
