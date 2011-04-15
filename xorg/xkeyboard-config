@@ -1,0 +1,11 @@
+tarxf ftp://ftp.x.org/pub/individual/data/ xkeyboard-config-1.4 .tar.bz2
+# fuck this, we just copy the stuff over
+mkdir -p $R/share/X11/xkb/rules
+#for f in base evdev xfree98 base.lst evdev.lst xkb.dtd README base.xml evdev.xml; do
+#  cp $f $R/share/X11/xkb/rules
+#done
+for d in compat geometry keycodes keymap semantics symbols types; do
+  cp -r $d $R/share/X11/xkb
+  mv $R/share/X11/xkb/$d/$d.dir $R/share/X11/xkb/$d.dir
+  rm $R/share/X11/xkb/$d/Makefile*
+done

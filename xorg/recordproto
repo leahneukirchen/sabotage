@@ -1,0 +1,4 @@
+tarxf ftp://ftp.x.org/pub/individual/proto/ recordproto-1.14 .tar.bz2
+./configure --prefix=/
+make DESTDIR=$R install
+

@@ -1,7 +1,7 @@
 #!/bin/sh
 # recipes - generate mkfile from package recipes
 
-for f in stage1/*[^~] pkg/*[^~]; do
+for f in stage1/*[^~] pkg/*[^~] xorg/*[^~]; do
   DIR=${f%%/*}
   PKG=${f##*/}
   echo $DIR:V: $PKG

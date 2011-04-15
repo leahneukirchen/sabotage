@@ -1,0 +1,4 @@
+tarxf http://xcb.freedesktop.org/dist/ libpthread-stubs-0.3 .tar.bz2
+./configure --prefix=/
+make DESTDIR=$R install
+

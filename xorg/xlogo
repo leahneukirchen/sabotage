@@ -1,0 +1,4 @@
+tarxf http://xorg.freedesktop.org/releases/individual/app/ xlogo-1.0.3 .tar.bz2
+./configure --prefix=/
+make LIBS="-lxcb -lXau -lXdmcp -lSM -lXpm -lX11 -lXrender"
+make DESTDIR=$R install

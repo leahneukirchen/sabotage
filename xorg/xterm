@@ -1,0 +1,11 @@
+tarxf ftp://invisible-island.net/xterm/ xterm-269 .tgz
+# Gleiches mit gleichem vergelten.
+CFLAGS="-g -D__GNU__ -D__GLIBC__=2 -D__GLIBC_MINOR__=10 -D_POSIX_SOURCE -D_GNU_SOURCE -Dfd_mask=long" ./configure --prefix=/ --mandir=/share/man
+cat <<EOF >>ptyx.h
+#ifndef HACKY_HACKY_GETPT 
+#define HACKY_HACKY_GETPT
+static inline int getpt() { return open("/dev/ptmx",O_RDWR|O_NOCTTY); }
+#endif
+EOF
+make LIBS="-lXaw7 -lXext -lXmu -lXpm -lXt -lSM -lICE -lX11 -lxcb -lXau -lXdmcp -lncurses"
+make DESTDIR=$R install

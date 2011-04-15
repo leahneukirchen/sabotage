@@ -1,0 +1,4 @@
+tarxf ftp://ftp.x.org/pub/individual/proto/ resourceproto-1.1.1 .tar.bz2
+./configure --prefix=/
+make DESTDIR=$R install
+

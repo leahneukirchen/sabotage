@@ -1,0 +1,4 @@
+tarxf ftp://ftp.x.org/pub/individual/proto/ kbproto-1.0.5 .tar.bz2
+./configure --prefix=/
+make DESTDIR=$R install
+

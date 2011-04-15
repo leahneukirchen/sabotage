@@ -1,0 +1,4 @@
+tarxf ftp://ftp.x.org/pub/individual/proto/ compositeproto-0.4.2 .tar.bz2
+./configure --prefix=/
+make DESTDIR=$R install
+

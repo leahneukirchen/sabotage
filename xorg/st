@@ -1,0 +1,6 @@
+tarxf http://hg.suckless.org/st/archive/ 0.1.1 .tar.gz st-0.1.1
+echo "PREFIX = /" >>config.mk
+make config.h
+sed -i '/FONT/s/".*"/"fixed"/' config.h
+make LIBS="-lX11 -lxcb -lXau"
+make DESTDIR=$R install

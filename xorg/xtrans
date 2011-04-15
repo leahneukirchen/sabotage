@@ -1,0 +1,4 @@
+tarxf ftp://ftp.x.org/pub/individual/lib/ xtrans-1.2.6 .tar.bz2
+./configure --prefix=/
+make DESTDIR=$R install
+

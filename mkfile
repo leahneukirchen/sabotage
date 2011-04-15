@@ -4,6 +4,7 @@ help:QV:
 	echo "  stage1          complete bootstrap"
 	echo "  pkg             build additional packages"
         echo "  world           build stage1 + pkg"
+        echo "  xorg            build X.org"
         echo "  rebuild-<pkg>   rebuild single package (V=1 for verbose)"
         echo "  check-sets      show missing and superfluous files"
         echo "  release         make a release (from /)"
@@ -14,7 +15,7 @@ PATH=utils:$PATH
 <deps
 <|recipes
 
-world:V: stage1 pkg
+world:V: stage1 pkg xorg
 
 check-sets:QV:
         utils/check-sets
@@ -23,5 +24,5 @@ release:QV:
         utils/release
 
 list:QV:
-	( grep -L tarxf stage1/*[^~] pkg/*[^~] |sed 's:.*/::'
-	awk '/tarxf/{print $3}' stage1/*[^~] pkg/*[^~] ) | sort
+	( grep -L tarxf stage1/*[^~] pkg/*[^~] xorg/*[^~] |sed 's:.*/::'
+	awk '/tarxf/{print $3}' stage1/*[^~] pkg/*[^~] xorg/*[^~] ) | sort
