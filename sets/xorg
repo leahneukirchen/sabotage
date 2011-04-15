@@ -16,6 +16,7 @@
 /bin/uxterm
 /bin/xauth
 /bin/xauth
+/bin/xclock
 /bin/xkbcomp
 /bin/xkbcomp
 /bin/xlogo
@@ -650,6 +651,8 @@
 /share/X11
 /share/X11/XErrorDB
 /share/X11/app-defaults
+/share/X11/app-defaults/XClock
+/share/X11/app-defaults/XClock-color
 /share/X11/app-defaults/XLogo
 /share/X11/app-defaults/XLogo-color
 /share/X11/locale
@@ -1573,6 +1576,7 @@
 /share/man/man1/sxpm.1
 /share/man/man1/uxterm.1
 /share/man/man1/xauth.1
+/share/man/man1/xclock.1
 /share/man/man1/xkbcomp.1
 /share/man/man1/xlogo.1
 /share/man/man1/xterm.1
