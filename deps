@@ -49,11 +49,12 @@ recordproto:     util-macros
 renderproto:     util-macros
 resourceproto:   util-macros
 scrnsaverproto:  util-macros
-st:              libx11
+st:              libx11 libxdmcp
 videoproto:      util-macros
-xclock:          libx11 libxrender libxft
+xclock:          libx11 libxrender libxft libxdmcp
+xlogo:           libx11 libxft libxdmcp
 xorg-server:     util-macros pixman fixesproto damageproto xcmiscproto \
   xtrans bigreqsproto xproto randrproto renderproto kbproto fontsproto \
   videoproto compositeproto recordproto scrnsaverproto resourceproto \
   xineramaproto libxkbfile libxfont libxau
-xterm:           libx11 libxaw
+xterm:           libx11 libxaw libxft

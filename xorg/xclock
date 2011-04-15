@@ -1,4 +1,4 @@
 tarxf http://xorg.freedesktop.org/releases/individual/app/ xclock-1.0.5 .tar.gz
 ./configure --prefix=/
-make LIBS="-lfontconfig -lexpat -lfreetype -lz -lXrender -lXext -lXpm -lX11 -lxcb -lXau -lSM -lICE"
+make LIBS="-lfontconfig -lexpat -lfreetype -lz -lXrender -lXext -lXpm -lXdmcp -lX11 -lxcb -lXau -lSM -lICE"
 make install
