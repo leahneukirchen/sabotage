@@ -146,6 +146,7 @@
 /include/bits/ipc.h
 /include/bits/limits.h
 /include/bits/mman.h
+/include/bits/msg.h
 /include/bits/posix.h
 /include/bits/pthread.h
 /include/bits/reg.h

@@ -14,6 +14,12 @@
 /bin/st
 /bin/sxpm
 /bin/uxterm
+/bin/xauth
+/bin/xauth
+/bin/xkbcomp
+/bin/xkbcomp
+/bin/xlogo
+/bin/xlogo
 /bin/xterm
 /etc/fonts
 /etc/fonts/conf.avail
@@ -193,6 +199,9 @@
 /include/X11/Xcms.h
 /include/X11/Xdefs.h
 /include/X11/Xdmcp.h
+/include/X11/Xft
+/include/X11/Xft/Xft.h
+/include/X11/Xft/XftCompat.h
 /include/X11/Xfuncproto.h
 /include/X11/Xfuncs.h
 /include/X11/Xlib-xcb.h
@@ -491,6 +500,8 @@
 /lib/libXfixes.la
 /lib/libXfont.a
 /lib/libXfont.la
+/lib/libXft.a
+/lib/libXft.la
 /lib/libXi.a
 /lib/libXi.la
 /lib/libXmu.a
@@ -611,6 +622,7 @@
 /lib/pkgconfig/xextproto.pc
 /lib/pkgconfig/xfixes.pc
 /lib/pkgconfig/xfont.pc
+/lib/pkgconfig/xft.pc
 /lib/pkgconfig/xi.pc
 /lib/pkgconfig/xineramaproto.pc
 /lib/pkgconfig/xkbfile.pc
@@ -637,6 +649,9 @@
 /lib/xorg/protocol.txt
 /share/X11
 /share/X11/XErrorDB
+/share/X11/app-defaults
+/share/X11/app-defaults/XLogo
+/share/X11/app-defaults/XLogo-color
 /share/X11/locale
 /share/X11/locale/C
 /share/X11/locale/C/Compose
@@ -1557,6 +1572,9 @@
 /share/man/man1/st.1
 /share/man/man1/sxpm.1
 /share/man/man1/uxterm.1
+/share/man/man1/xauth.1
+/share/man/man1/xkbcomp.1
+/share/man/man1/xlogo.1
 /share/man/man1/xterm.1
 /share/man/man3/AllPlanes.3
 /share/man/man3/BitmapBitOrder.3
@@ -2420,6 +2438,7 @@
 /share/man/man3/XeviQueryExtension.3
 /share/man/man3/XeviQueryVersion.3
 /share/man/man3/Xfixes.3
+/share/man/man3/Xft.3
 /share/man/man3/XkbActionCtrls.3
 /share/man/man3/XkbAddDeviceLedInfo.3
 /share/man/man3/XkbAddGeomColor.3

@@ -7,6 +7,9 @@
 /lib/modules/2.6.38.2/kernel/drivers
 /lib/modules/2.6.38.2/kernel/drivers/scsi
 /lib/modules/2.6.38.2/kernel/drivers/scsi/scsi_wait_scan.ko
+/lib/modules/2.6.38.2/modules.alias
 /lib/modules/2.6.38.2/modules.builtin
+/lib/modules/2.6.38.2/modules.dep
 /lib/modules/2.6.38.2/modules.order
+/lib/modules/2.6.38.2/modules.symbols
 /lib/modules/2.6.38.2/source
