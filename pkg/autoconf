@@ -1,5 +1,4 @@
 tarxf ftp://ftp.gnu.org/pub/gnu/autoconf/ autoconf-2.68 .tar.bz2
-patch -p1 <$K/autoconf-no-POSIX.patch
 ./configure --prefix=/
 make
 make install
