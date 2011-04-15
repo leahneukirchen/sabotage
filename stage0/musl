@@ -1,6 +1,6 @@
 cd $S
 rm -rf musl
-git clone https://github.com/chneukirchen/musl-chris2.git musl
+git clone git://git.etalabs.net/musl
 cd musl
 cp $K/musl.config.mak config.mak
 
