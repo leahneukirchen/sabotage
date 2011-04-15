@@ -204,6 +204,8 @@
 /include/err.h
 /include/errno.h
 /include/eti.h
+/include/expat.h
+/include/expat_external.h
 /include/fcntl.h
 /include/features.h
 /include/fenv.h
@@ -1272,6 +1274,8 @@
 /lib/libcurl.a
 /lib/libcurl.la
 /lib/libdl.a
+/lib/libexpat.a
+/lib/libexpat.la
 /lib/libfl.a
 /lib/libfl_pic.a
 /lib/libform.a

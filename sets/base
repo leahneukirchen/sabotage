@@ -460,6 +460,7 @@
 /bin/who
 /bin/whoami
 /bin/xargs
+/bin/xmlwf
 /bin/xsubpp
 /bin/xxd
 /bin/xz
