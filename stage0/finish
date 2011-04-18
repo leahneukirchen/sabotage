@@ -1,8 +1,10 @@
 cp $K/extlinux.conf $R/boot/
 cp $K/runsvdir-start $R/bin/
-cp $K/etc/* $R/etc/
+cp -r $K/etc/* $R/etc/
 chmod 0600 $R/etc/shadow
-cp -r $K/service/* $R/var/service
+for s in $R/etc/service/*; do
+  ln -s $s ${s/etc/var}
+done
 
 mkdir -p $R/tmp/src
 
