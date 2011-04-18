@@ -399,6 +399,7 @@
 /bin/switch_root
 /bin/sync
 /bin/sysctl
+/bin/syslinux
 /bin/tabs
 /bin/tac
 /bin/tail
