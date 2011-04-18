@@ -8,6 +8,7 @@ help:QV:
         echo "  rebuild-<pkg>   rebuild single package (V=1 for verbose)"
         echo "  check-sets      show missing and superfluous files"
         echo "  release         make a release (from /)"
+        echo "  installer       build install kernel"
         echo "  list            show all packages"
 
 PATH=utils:$PATH
@@ -22,6 +23,9 @@ check-sets:QV:
 
 release:QV:
         utils/release
+
+installer:QV:
+        utils/installer
 
 list:QV:
 	( grep -L tarxf stage1/*[^~] pkg/*[^~] xorg/*[^~] |sed 's:.*/::'

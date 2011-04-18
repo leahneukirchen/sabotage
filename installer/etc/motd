@@ -1,0 +1,13 @@
+
+Welcome to the sabotage install kernel.
+
+If you want to do a net install, setup networking like this:
+
+  ifconfig eth0 up 10.0.2.15
+  route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.0.2.2 dev eth0
+  echo "nameserver 4.2.2.2" >/etc/resolv.conf
+
+Please prepare partitions yourself using fdisk and mkfs.ext4.
+Then, mount your root partition as /mnt (and other partitions below
+that, if needed) and run "sabotage-install".
+

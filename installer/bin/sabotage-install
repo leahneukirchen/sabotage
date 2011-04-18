@@ -1,0 +1,81 @@
+#!/bin/sh
+# sabotage-install
+
+if ! mountpoint -q /mnt; then
+  echo "Please mount your root partition as /mnt."
+  exit 1
+fi
+
+ask() {
+  echo -n "$2 [$3] "
+  read answer
+  eval $1='${answer:-"$3"}'
+}
+
+localwget() {
+  case "$1" in
+    http://*)
+      wget -q -O - "$1";;
+    /*)
+      if [ -d "$1" ]; then
+        ls -1 "$1"
+      else
+        cat "$1"
+      fi;;
+   esac
+}
+
+RELEASES=
+while [ -z "$RELEASES" ]; do
+  ask MIRROR "Which mirror (or /installer)?" http://xmw.de/mirror/sabotage/
+  echo $MIRROR
+
+  RELEASES=$(localwget "$MIRROR" | grep -o "sabotage[0-9-][0-9-]*" |sort |uniq)
+done
+LATEST=$(echo "$RELEASES" | tail -1)
+
+ALLSETS=
+while [ -z "$ALLSETS" ]; do
+  echo
+  echo "Available releases:"
+  echo "$RELEASES"
+  ask RELEASE "Which release?" $LATEST
+
+  ALLSETS=$(localwget $MIRROR/$RELEASE | grep -o "[a-z]*.tar.xz" |sed 's/.tar.xz//' |sort |uniq)
+done
+
+SETS=
+while [ -z "$SETS" ]; do
+  echo
+  echo "Available sets:"
+  echo $ALLSETS
+  echo "Note: for a fresh install, you MUST install at least: base etc kernel"
+  ask SETS "Which sets?" "$(echo $ALLSETS)"
+
+  for s in $SETS; do
+    echo "$ALLSETS" | grep -q '^'$s'$' || SETS=
+  done
+done
+
+echo
+ask OK "Last chance to exit: Install sabotage now?" "y"
+if ! [ "$OK" = "y" ]; then
+  echo "Installation aborted." >/dev/stderr
+  exit 2
+fi
+
+for s in $SETS; do
+  cd /mnt
+  echo "Installing $MIRROR/$RELEASE/$s.tar.xz"
+  localwget $MIRROR/$RELEASE/$s.tar.xz | unxz | tar xvf -
+done
+
+echo
+ask EXTLINUX "Install extlinux on /boot?" "y"
+if [ "$EXTLINUX" = "y" ]; then
+  extlinux -i /mnt/boot
+fi
+
+echo
+echo "$RELEASE has been installed, reboot and have fun!"
+echo

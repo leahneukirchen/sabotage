@@ -1,0 +1,7 @@
+::sysinit:/etc/rc.S
+::respawn:-/bin/sh
+tty2::askfirst:-/bin/sh
+tty3::askfirst:-/bin/sh
+tty4::askfirst:-/bin/sh
+tty12::respawn:cat /proc/kmsg
+::shutdown:umount -a -r -t noproc

@@ -1,0 +1,68 @@
+#!/bin/sh
+set -x -e
+
+rm -rf /tmp/src/installer
+mkdir -p /tmp/src/installer
+cp -r installer /tmp/src/installer/root
+cd /tmp/src/installer/root
+mkdir -p bin etc dev lib/syslinux installer mnt proc sys tmp var/tmp
+cp /bin/busybox bin
+busybox --install bin
+ln bin/init init
+cp /bin/fsck* /bin/mkfs.* bin || true
+cp /bin/extlinux bin
+cp /bin/ed bin
+# cp -r /lib/modules lib
+cp /lib/syslinux/* lib/syslinux
+mknod -m 0644 dev/console c 5 1
+ln -s /proc/mounts  etc/mtab
+
+find . | cpio -o -H newc | xz --check=crc32 --lzma2=dict=512KiB >../initramfs.cpio.xz
+cd ..
+
+# XXX find best version
+tar xf /src/linux-*.tar.bz2
+cd linux-*
+cp /tmp/src/KEEP/kernel-INSTALL.config .config
+
+make HOSTCFLAGS=-D_GNU_SOURCE -j8 
+
+cp arch/$(uname -m)/boot/bzImage ..
+cd ..
+
+dd if=/dev/null of=media.img bs=1024 seek=150K
+fdisk media.img <<EOF
+o
+n
+p
+1
+
+
+a
+1
+t1
+c
+p
+w
+EOF
+
+DEV=$(losetup -f)
+losetup -o 32256 $DEV media.img
+mkfs.vfat -n SABOTAGE -v $DEV
+mkdir media
+mount $DEV media
+cp bzImage media
+
+cat <<EOF >media/syslinux.cfg
+PROMPT 1
+TIMEOUT 100
+DEFAULT sabotage
+
+LABEL sabotage
+        KERNEL bzImage
+EOF
+
+umount $DEV
+syslinux -i $DEV
+losetup -d $DEV
+dd if=/usr/lib/syslinux/mbr.bin of=media.img conv=notrunc
