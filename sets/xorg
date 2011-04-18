@@ -15,11 +15,8 @@
 /bin/sxpm
 /bin/uxterm
 /bin/xauth
-/bin/xauth
 /bin/xclock
 /bin/xkbcomp
-/bin/xkbcomp
-/bin/xlogo
 /bin/xlogo
 /bin/xterm
 /etc/fonts
