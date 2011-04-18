@@ -12,6 +12,7 @@ ln bin/init init
 cp /bin/fsck* /bin/mkfs.* bin || true
 cp /bin/extlinux bin
 cp /bin/ed bin
+strip -a bin/*
 # cp -r /lib/modules lib
 cp /lib/syslinux/* lib/syslinux
 mknod -m 0644 dev/console c 5 1
@@ -29,9 +30,10 @@ make HOSTCFLAGS=-D_GNU_SOURCE -j8
 
 cp arch/$(uname -m)/boot/bzImage ..
 cd ..
+cp bzImage sabotage-install-$(date -Idate).rd
 
 dd if=/dev/null of=media.img bs=1024 seek=150K
-fdisk media.img <<EOF
+fdisk media.img <<EOF ||true
 o
 n
 p
@@ -66,3 +68,16 @@ umount $DEV
 syslinux -i $DEV
 losetup -d $DEV
 dd if=/usr/lib/syslinux/mbr.bin of=media.img conv=notrunc
+
+gzip <media.img >sabotage-netinstall-$(date -Idate).img.gz
+
+mount -o loop,offset=32256 media.img media
+if [ -n "DISTS" ]; then
+  (
+  cd /tmp/src/sabotage/dist
+  cp -r $DISTS /tmp/src/installer/media
+  )
+fi
+umount media
+
+gzip <media.img >sabotage-full-$(date -Idate).img.gz 

@@ -28,7 +28,6 @@ localwget() {
 RELEASES=
 while [ -z "$RELEASES" ]; do
   ask MIRROR "Which mirror (or /installer)?" http://xmw.de/mirror/sabotage/
-  echo $MIRROR
 
   RELEASES=$(localwget "$MIRROR" | grep -o "sabotage[0-9-][0-9-]*" |sort |uniq)
 done
