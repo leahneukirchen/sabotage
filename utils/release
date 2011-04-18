@@ -1,11 +1,13 @@
 #!/bin/sh
 # release - package file sets
 
+H=$(pwd)
 RELEASE=sabotage-$(date -Idate)
-mkdir -p dist/$RELEASE
+mkdir -p $H/dist/$RELEASE
 for s in base comp doc etc kernel xorg; do
-  bsdcpio -o -H ustar <sets/$s |xz -e >dist/$RELEASE/$s.tar.xz
-  ls -l dist/$RELEASE/$s*
+  cd /
+  sed 's/^/./' <$H/sets/$s |bsdcpio -o -H ustar |xz -e >$H/dist/$RELEASE/$s.tar.xz
+  ls -l $H/dist/$RELEASE/$s*
 done
-cd dist/$RELEASE
+cd $H/dist/$RELEASE
 sha1sum *.*z* >SHA1SUMS
