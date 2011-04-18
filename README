@@ -11,6 +11,8 @@ Requirements:
 
 This system has been built on up-to-date Gentoo and Arch systems.
 
+READ THE COOKBOOK FIRST.
+
 Build instructions:  Caveat emptor, this is all pre-alpha!
 DO NOT RUN SCRIPTS YOU HAVE NOT READ.
 
@@ -29,7 +31,8 @@ DO NOT RUN SCRIPTS YOU HAVE NOT READ.
 copy $R to a ext4 file-system
 # extlinux -i $R/boot
 
-# mk pkg           # additional additional stuff
+# mk pkg           # additional stuff
+# mk xorg          # build X.org
 
 See "mk help" for further options.
 
@@ -37,3 +40,8 @@ The build is parallel-safe (MAKEFLAGS=-jN), but all packages are build
 sequentially.
 
 The default root password is "sabotage".
+
+
+There is a mailinglist sabotage@lists.openwall.org, mail to
+sabotage-subscribe@lists.openwall.org and follow instructions to get
+on it.

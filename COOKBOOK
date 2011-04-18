@@ -1,0 +1,192 @@
+= The Saboteur's Cookbook
+
+a guide to running Sabotage for the experienced user.
+
+
+== Installing the system
+
+There are various ways you can install a sabotage system:
+- by bootstrapping
+- from a USB stick
+- from the network
+
+The bootstrapping approach is explained in the chapter "Bootstrapping
+the system".
+
+To install from a USB stick, get sabotage-full* or
+sabotage-netinstall* from a mirror, gunzip and dd it onto a stick.
+
+To install from network, setup a TFTP server, grab pxelinux.0 and boot
+the kernel sabotage-install-YYYY-MM-DD.rd.
+
+After booting, you will need to partition your harddisk with fdisk
+(don't forget to make the root partition bootable) and format the root
+partition with mkfs.ext4.  If you want to netinstall, now setup your
+network connection using ifconfig.  Don't forget to set a nameserver
+in /etc/resolv.conf.  Then mount the root file system at /mnt.
+
+Run "sabotage-install".  Enter /installed if you want to install from
+the sabotage-full* disk, or enter the prefix of a mirror.  Pressing
+return will accept the default value, shown in [braces].
+Usually, you then want to choose the latest release.
+Next, you will need to select sets:
+
+  base   - base system, REQUIRED
+  comp   - compilers
+  doc    - documentation
+  etc    - configuration files, REQUIRED
+  kernel - kernel and modules, REQUIRED
+  xorg   - partial X.org distribution
+
+Accept installing extlinux unless you already have a bootloader.
+If you install on a fresh partition, you'll also need to install a MBR
+like this:
+
+  dd if=/usr/lib/syslinux/mbr.bin of=/dev/DISK conv=notrunc
+
+Now reboot into your freshly installed Sabotage system!
+
+
+== Bootstrapping the system
+
+Git clone the sabotage repository.  Copy "KEEP/config.stage" to "config"
+and adjust the paths:
+
+  $K  directory with patches
+  $S  where sources are compiled (stage0: ~700MB, stage1: ~2.1GB)
+  $R  root file system, potentially loopback-mounted or on a real partition
+
+Next steps:
+
+  % . ./config       # required!
+
+  % ./build-stage0   # build toolchain (~15min on a modern machine)
+  % ./enter-chroot   # enter $R chrooted, needs root password
+
+Inside the chroot, you need to build stage1:
+
+  # cd /tmp/src/sabotage   # absolute path required!
+  # mk stage1        # rebuild stuff, build kernel (~1h)
+
+You can now really boot the system (potentially install extlinux), or
+continue in the chroot:
+
+  # mk pkg           # additional stuff
+  # mk xorg          # build X.org
+
+
+== Making a release
+
+Build everything (mk world is a shortcut).  Check that all files are there:
+
+  # mk check-sets
+
+Especially check that there are no files that belong to the distribution
+in the list of "superfluous" files (/tmp/cs-superfluous).  Else, edit
+the set files in sets/*.
+
+Rules:
+
+xorg   contains everything related to X.org, including libs and manpages.
+doc    contains all documentation: manpages, Info and HTML.
+comp   contains everything related to compiling, and static libraries.
+etc    contains configuration files that should not be overwritten by an upgrade.
+kernel contains the kernel and modules.
+base   contains the rest.
+
+The built sets reside in dist/sabotage-YYYY-MM-DD.
+
+
+== Making the installer
+
+  # mk installer
+
+... wait ... look into /tmp/src/installer ... copy stuff around.
+
+
+== Adding a package
+
+Decide where to place the package:
+
+  stage1 - things elementary to build Sabotage in the chroot/before first boot
+  pkg    - usual packages
+  xorg   - things related to X.org, things which need a GUI
+  extra  - stuff not packaged, for users to build themselves
+
+Update "deps" to depend on *build dependencies* *inside the set*.
+pkg can depend that stage1 is built, xorg can depend that pkg is built.
+
+In $dir/$name, you should make use of the "tarxf" function to retrieve sources:
+
+  tarxf $REMOTEDIR $PKGNAME $SUFFIX [$DIRNAME]
+
+Configure stuff with --prefix=/ and don't forget to set the DESTDIR to $R
+to allow seperate release building in later versions, e.g.:
+
+  tarxf http://www.greenwoodsoftware.com/less/ less-436 .tar.gz
+  ./configure --prefix=/
+  make
+  make DESTDIR=$R install
+
+You can test your build with "mk rebuild-$pkg" which will not rebuild
+build dependencies.
+
+
+== System administration
+
+Sabotage does things a bit differently than your usual Linux
+distribution!
+
+=== The file system
+
+Sabotage does not follow FHS.  /usr is a legacy symlink to /, /sbin is
+a legacy symlink to /bin.  Software should be installed with
+--prefix=/.  The times of a seperate root partition are long over.
+
+Everything below /local is yours, use it wisely.  Software not
+packaged by Sabotage should not touch stuff outside, it could possibly
+break on updates.
+
+Use /srv/$SERVICE/$VHOST for all server data.
+
+=== The init system
+
+Sabotage uses runit as init system (not entirely, so far we use
+Busybox init to start runsvdir).  This is cool, see
+http://busybox.net/~vda/init_vs_runsv.html.
+
+The base system has a few services, which you find in /var/service
+(note that these are symlinks to /etc/service):
+  
+  dmesg - logs kernel messages
+  sshd  - opensshd, down by default
+  tty2, tty3, tty4 - three gettys
+  crond - cron daemon
+
+You can start services with "sv u $SERVICE" or take them down with "sv
+d $SERVICE".  By default, all services in /var/service start at boot
+time, unless they have a "down" file in their directory---then you'll
+have to start them manually.  If you don't want to use a service at all,
+best remove the symlink to /etc/service.
+
+You can find out whats running and what is not with
+
+  # sv s /var/service/*
+
+Look into the service directories to find out how to add your own
+services---note that you must tell them not to daemonize!
+
+For the rest of runit, I'll refer you to the documentation at
+http://smarden.org/runit/index.html
+
+=== Logging
+
+There is no syslog support so far, services should use "svlogd" (see
+runit docs) to log into directories below /var/log.
+You can inspect the logs by looking at /var/log/$SERVICE/current,
+Kernel messages are found in /var/log/dmesg/current.
+
+You can quickly look at all logs with
+
+  # sort /var/log/*/current  |less
+
