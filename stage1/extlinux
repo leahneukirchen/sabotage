@@ -4,9 +4,9 @@ sed -i '/#define statfs/d;/#undef statfs/d' libinstaller/linuxioctl.h
 
 make -C libinstaller
 make -C extlinux OPTFLAGS="-g -Os -D_GNU_SOURCE"
-make -C syslinux OPTFLAGS="-g -Os -D_GNU_SOURCE"
+make -C linux OPTFLAGS="-g -Os -D_GNU_SOURCE"
 
 cp extlinux/extlinux $R/bin
-cp syslinux/syslinux $R/bin
+cp linux/syslinux $R/bin
 mkdir -p $R/lib/syslinux
 cp mbr/*mbr.bin $R/lib/syslinux
