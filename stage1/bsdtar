@@ -2,5 +2,3 @@ tarxf http://libarchive.googlecode.com/files/ libarchive-2.8.4 .tar.gz
 ./configure --prefix=/ --disable-shared
 make
 make DESTDIR=$R install
-ln -sf bsdtar $R/bin/tar
-ln -sf bsdcpio $R/bin/cpio

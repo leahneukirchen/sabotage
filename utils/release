@@ -4,7 +4,7 @@
 RELEASE=sabotage-$(date -Idate)
 mkdir -p dist/$RELEASE
 for s in base comp doc etc kernel xorg; do
-  cpio -o -H ustar <sets/$s |xz -e >dist/$RELEASE/$s.tar.xz
+  bsdcpio -o -H ustar <sets/$s |xz -e >dist/$RELEASE/$s.tar.xz
   ls -l dist/$RELEASE/$s*
 done
 cd dist/$RELEASE
