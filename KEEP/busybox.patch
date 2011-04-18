@@ -27,6 +27,17 @@ diff -aur busybox-1.18.4.orig/include/platform.h busybox-1.18.4/include/platform
  /*
   * Now, define prototypes for all the functions defined in platform.c
   * These must come after all the HAVE_* macros are defined (or not)
+--- busybox-1.18.4.orig/miscutils/man.c	2011-04-18 00:00:00.000000000 +0000
++++ busybox-1.18.4/miscutils/man.c	2011-04-18 09:14:10.863440396 +0000
+@@ -109,7 +109,7 @@
+ 	/* "2>&1" is added so that nroff errors are shown in pager too.
+ 	 * Otherwise it may show just empty screen */
+ 	cmd = xasprintf(
+-		man ? "gtbl | nroff -Tlatin1 -mandoc 2>&1 | %s"
++		man ? "nroff -Tutf -man 2>&1 | %s"
+ 		    : "%s",
+ 		pager);
+ 	system(cmd);
 diff -aur busybox-1.18.4.orig/networking/ifconfig.c busybox-1.18.4/networking/ifconfig.c
 --- busybox-1.18.4.orig/networking/ifconfig.c	2011-03-13 02:45:06.000000000 +0100
 +++ busybox-1.18.4/networking/ifconfig.c	2011-04-05 23:35:13.391907076 +0200
@@ -85,15 +96,3 @@ diff -aur busybox-1.18.4.orig/util-linux/fdisk.c busybox-1.18.4/util-linux/fdisk
  		fdisk_fatal(unable_to_seek);
  #else
  	uint64_t off = (uint64_t)secno * sector_size;
-diff -aur busybox-1.18.4.orig/miscutils/man.c busybox-1.18.4/miscutils/man.c
---- busybox-1.18.4.orig/miscutils/man.c 2011-04-18 08:50:13.348999291 +0000
-+++ busybox-1.18.4/miscutils/man.c      2011-04-18 08:52:36.524940968 +0000
-@@ -109,7 +109,7 @@
-        /* "2>&1" is added so that nroff errors are shown in pager too.
-         * Otherwise it may show just empty screen */
-        cmd = xasprintf(
--               man ? "gtbl | nroff -Tlatin1 -mandoc 2>&1 | %s"
-+               man ? "nroff -Tutf -man 2>&1 | %s"
-                    : "%s",
-                pager);
-        system(cmd);
