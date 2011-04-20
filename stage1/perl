@@ -19,3 +19,8 @@ patch -p1 <$K/perl-disable-siginfo.patch
 # http://bugs.gentoo.org/show_bug.cgi?id=331113
 make -j1
 make install
+
+cd ext/POSIX
+perl Makefile.PL PREFIX=$R
+make
+make install
