@@ -3,7 +3,7 @@ cp $K/runsvdir-start $R/bin/
 cp -r $K/etc/* $R/etc/
 chmod 0600 $R/etc/shadow
 for s in $R/etc/service/*; do
-  ln -s $s ${s/etc/var}
+  ln -s /etc/service/${s##*/} ${s/etc/var}
 done
 
 mkdir -p $R/tmp/src
