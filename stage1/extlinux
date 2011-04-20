@@ -1,4 +1,4 @@
-tarxf http://www.kernel.org/pub/linux/utils/boot/syslinux/ syslinux-4.03 .tar.bz2
+tarxf http://www.kernel.org/pub/linux/utils/boot/syslinux/4.xx/ syslinux-4.04 .tar.bz2
 
 sed -i '/#define statfs/d;/#undef statfs/d' libinstaller/linuxioctl.h
 
