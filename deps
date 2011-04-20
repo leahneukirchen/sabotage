@@ -32,6 +32,7 @@ vim:         ncurses
 bigreqsproto:    util-macros
 compositeproto:  util-macros
 fontsproto:      util-macros
+fontconfig:      freetype
 inputproto:      util-macros
 libsm:           libice
 libx11:          util-macros libxcb xproto xextproto xtrans kbproto inputproto
@@ -40,10 +41,11 @@ libxau:          xproto
 libxcb:          xcb-proto libpthread-stubs libxau
 libxext:         xproto libx11 xextproto
 libxfont:        util-macros freetype libfontenc xproto fontsproto xtrans
-libxft:          fontconfig
+libxft:          fontconfig libxrender
 libxi:           libxext inputproto
 libxkbfile:      libx11
 libxmu:          libxext libxt
+libxrender:      renderproto
 libxt:           libsm libice
 randrproto:      util-macros
 recordproto:     util-macros
