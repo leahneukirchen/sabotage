@@ -36,6 +36,7 @@ inputproto:      util-macros
 libsm:           libice
 libx11:          util-macros libxcb xproto xextproto xtrans kbproto inputproto
 libxaw:          libxext libxmu libxpm
+libxau:          xproto
 libxcb:          xcb-proto libpthread-stubs libxau
 libxext:         xproto libx11 xextproto
 libxfont:        util-macros freetype libfontenc xproto fontsproto xtrans
