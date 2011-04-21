@@ -72,7 +72,7 @@ sync
 gzip <media.img >sabotage-netinstall-$(date -Idate).img.gz
 
 mount $DEV media
-if [ -n "DISTS" ]; then
+if [ -n "$DISTS" ]; then
   (
   cd /tmp/src/sabotage/dist
   cp -r $DISTS /tmp/src/installer/media
