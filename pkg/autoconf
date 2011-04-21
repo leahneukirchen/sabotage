@@ -1,4 +1,4 @@
 tarxf ftp://ftp.gnu.org/pub/gnu/autoconf/ autoconf-2.68 .tar.bz2
 ./configure --prefix=/
 make
-make install
+make DESTDIR=$R install
