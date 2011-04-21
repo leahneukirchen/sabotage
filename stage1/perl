@@ -21,6 +21,6 @@ make -j1
 make install
 
 cd ext/POSIX
-perl Makefile.PL PREFIX=$R
+perl Makefile.PL
 make
 make install
