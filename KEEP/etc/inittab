@@ -3,5 +3,3 @@
 ::sysinit:/etc/rc.boot
 ::respawn:/bin/runsvdir-start
 ::shutdown:/etc/rc.shutdown
-
-tty1::respawn:/bin/getty -L 38400 tty1 linux
