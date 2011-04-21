@@ -26,3 +26,5 @@ mount -a
 dd if=/dev/urandom of=/etc/random-seed count=1 bs=512 2>/dev/null
 
 dmesg >/var/log/dmesg.log
+
+[ -x /etc/rc.local ] && /etc/rc.local
