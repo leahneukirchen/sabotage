@@ -1,3 +1,4 @@
+mkdir -p $R/src
 cd $R/src
 [ -f linux-2.6.38.2.tar.bz2 ] || wget -c http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.38.2.tar.bz2
 tar xf linux-2.6.38.2.tar.bz2
