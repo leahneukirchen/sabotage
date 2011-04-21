@@ -7,12 +7,12 @@ cp -r installer /tmp/src/installer/root
 cd /tmp/src/installer/root
 mkdir -p bin etc dev lib/syslinux installer mnt proc sys tmp var/tmp
 cp /bin/busybox bin
-busybox --install bin
+bin/busybox --install bin
 ln bin/init init
 cp /bin/fsck* /bin/mkfs.* bin || true
 cp /bin/extlinux bin
 cp /bin/ed bin
-strip -a bin/*
+strip -s bin/* || true
 # cp -r /lib/modules lib
 cp /lib/syslinux/* lib/syslinux
 mknod -m 0644 dev/console c 5 1
@@ -66,12 +66,12 @@ EOF
 
 umount $DEV
 syslinux -i $DEV
-losetup -d $DEV
 dd if=/usr/lib/syslinux/mbr.bin of=media.img conv=notrunc
+sync
 
 gzip <media.img >sabotage-netinstall-$(date -Idate).img.gz
 
-mount -o loop,offset=32256 media.img media
+mount $DEV media
 if [ -n "DISTS" ]; then
   (
   cd /tmp/src/sabotage/dist
@@ -79,5 +79,7 @@ if [ -n "DISTS" ]; then
   )
 fi
 umount media
+losetup -d $DEV
+sync
 
 gzip <media.img >sabotage-full-$(date -Idate).img.gz 
