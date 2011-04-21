@@ -7,3 +7,5 @@ mkdir -p var/log var/log/sshd var/log/crond var/log/dmesg
 mkdir -p var/empty var/service var/tmp var/spool/cron/crontabs
 ln -s . usr
 ln -s bin sbin
+
+chmod 1777 tmp
