@@ -509,6 +509,8 @@
 /etc/ssl/private
 /home
 /include
+/include/python2.7
+/include/python2.7/pyconfig.h
 /lib
 /lib/awk
 /lib/awk/grcat

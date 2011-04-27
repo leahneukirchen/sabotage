@@ -994,7 +994,6 @@
 /include/python2.7/py_curses.h
 /include/python2.7/pyarena.h
 /include/python2.7/pycapsule.h
-/include/python2.7/pyconfig.h
 /include/python2.7/pyctype.h
 /include/python2.7/pydebug.h
 /include/python2.7/pyerrors.h
