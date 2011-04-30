@@ -481,12 +481,18 @@
 /etc
 /etc/mtab
 /etc/service
+/etc/service/crond
+/etc/service/crond/log
+/etc/service/crond/log/run
+/etc/service/crond/run
 /etc/service/dmesg
 /etc/service/dmesg/run
 /etc/service/sshd
 /etc/service/sshd/log
 /etc/service/sshd/log/run
 /etc/service/sshd/run
+/etc/service/tty1
+/etc/service/tty1/run
 /etc/service/tty2
 /etc/service/tty2/run
 /etc/service/tty3
@@ -10159,6 +10165,7 @@
 /var
 /var/empty
 /var/log
+/var/log/crond
 /var/log/dmesg
 /var/log/sshd
 /var/service
