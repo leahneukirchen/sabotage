@@ -1,3 +1,4 @@
+export A=$(uname -m)
 export K=/tmp/src/KEEP
 export S=/tmp/src
 export R=/

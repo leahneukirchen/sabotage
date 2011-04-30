@@ -3,7 +3,7 @@
 #
 
 # Target CPU architecture. Supported values: i386, x86_64
-ARCH = x86_64
+ARCH = $A
 
 # Installation prefix. DO NOT use /, /usr, or /usr/local !
 prefix = $R
