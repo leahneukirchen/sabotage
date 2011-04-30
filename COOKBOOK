@@ -50,8 +50,9 @@ Now reboot into your freshly installed Sabotage system!
 == Bootstrapping the system
 
 Git clone the sabotage repository.  Copy "KEEP/config.stage" to "config"
-and adjust the paths:
+and adjust the variables:
 
+  $A  architecture (i386 or x86_64)
   $K  directory with patches
   $S  where sources are compiled (stage0: ~700MB, stage1: ~2.1GB)
   $R  root file system, potentially loopback-mounted or on a real partition

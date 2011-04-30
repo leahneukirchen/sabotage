@@ -1,15 +1,14 @@
 This is sabotage, an experimental distribution based on musl libc and busybox.
 
 Requirements:
-- Only tested on x86_64, i386 shouldn't be hard to port.
-- ~4G disk space
+- ~4G free disk space
 - root access
 - usual GCC 4 toolchain
 - git
 - a bootloader of your choice (extlinux is favored)
 - lots of time and a fair bit of Linux knowledge
 
-This system has been built on up-to-date Gentoo and Arch systems.
+This system has been built on up-to-date Gentoo, Exherbo and Arch systems.
 
 READ THE COOKBOOK FIRST.
 
@@ -18,6 +17,7 @@ DO NOT RUN SCRIPTS YOU HAVE NOT READ.
 
 % cp KEEP/config.stage0 config
 % vi config
+  $A  architecture (x86_64 or i386)
   $K  directory with patches
   $S  where sources are compiled (stage0: ~700MB, stage1: ~2.1GB)
   $R  root file system
@@ -36,12 +36,12 @@ copy $R to a ext4 file-system
 
 See "mk help" for further options.
 
-The build is parallel-safe (MAKEFLAGS=-jN), but all packages are build
+The build is parallel-safe (MAKEFLAGS=-j<N>), but all packages are build
 sequentially.
 
 The default root password is "sabotage".
 
 
-There is a mailinglist sabotage@lists.openwall.com, mail to
+There is a mailinglist sabotage@lists.openwall.com, mail
 sabotage-subscribe@lists.openwall.com and follow instructions to get
-on it.
+on it.  Archives are at http://openwall.com/lists/sabotage/
