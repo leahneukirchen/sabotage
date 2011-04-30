@@ -12,10 +12,12 @@
 /bin/freetype-config
 /bin/koi8rxterm
 /bin/st
+/bin/startx
 /bin/sxpm
 /bin/uxterm
 /bin/xauth
 /bin/xclock
+/bin/xinit
 /bin/xkbcomp
 /bin/xlogo
 /bin/xterm
@@ -473,6 +475,8 @@
 /lib/X11/app-defaults/UXTerm-color
 /lib/X11/app-defaults/XTerm
 /lib/X11/app-defaults/XTerm-color
+/lib/X11/xinit
+/lib/X11/xinit/xinitrc
 /lib/libICE.a
 /lib/libICE.la
 /lib/libSM.a
