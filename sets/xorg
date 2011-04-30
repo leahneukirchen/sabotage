@@ -1574,10 +1574,12 @@
 /share/man/man1/koi8rxterm.1
 /share/man/man1/resize.1
 /share/man/man1/st.1
+/share/man/man1/startx.1
 /share/man/man1/sxpm.1
 /share/man/man1/uxterm.1
 /share/man/man1/xauth.1
 /share/man/man1/xclock.1
+/share/man/man1/xinit.1
 /share/man/man1/xkbcomp.1
 /share/man/man1/xlogo.1
 /share/man/man1/xterm.1

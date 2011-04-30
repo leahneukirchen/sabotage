@@ -996,6 +996,7 @@
 /lib/perl5/core_perl/auto/Opcode/extralibs.ld
 /lib/perl5/core_perl/auto/POSIX
 /lib/perl5/core_perl/auto/POSIX/POSIX.a
+/lib/perl5/core_perl/auto/POSIX/extralibs.ld
 /lib/perl5/core_perl/auto/PerlIO
 /lib/perl5/core_perl/auto/PerlIO/encoding
 /lib/perl5/core_perl/auto/PerlIO/encoding/encoding.a
@@ -1014,6 +1015,7 @@
 /lib/perl5/core_perl/auto/Socket/extralibs.ld
 /lib/perl5/core_perl/auto/Storable
 /lib/perl5/core_perl/auto/Storable/Storable.a
+/lib/perl5/core_perl/auto/Storable/extralibs.ld
 /lib/perl5/core_perl/auto/Sys
 /lib/perl5/core_perl/auto/Sys/Hostname
 /lib/perl5/core_perl/auto/Sys/Hostname/Hostname.a
