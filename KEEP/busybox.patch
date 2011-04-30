@@ -12,12 +12,11 @@ diff -aur busybox-1.18.4.orig/include/platform.h busybox-1.18.4/include/platform
  
  #if defined(__dietlibc__)
  # undef HAVE_STRCHRNUL
-@@ -374,6 +372,14 @@
+@@ -374,6 +372,13 @@
  # undef HAVE_STRCHRNUL
  #endif
  
 +#if defined(__musl__)
-+# undef HAVE_MEMRCHR
 +# undef HAVE_SETBIT
 +# include <stddef.h>
 +# include <termios.h>
