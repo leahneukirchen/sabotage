@@ -161,8 +161,6 @@
 /include/bits/tcp.h
 /include/bits/termios.h
 /include/bits/user.h
-/include/bits/wait.h
-/include/bits/wexitstatus.h
 /include/byteswap.h
 /include/cpio.h
 /include/ctype.h

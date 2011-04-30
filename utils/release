@@ -6,7 +6,7 @@ RELEASE=sabotage-$(date -Idate)
 mkdir -p $H/dist/$RELEASE
 for s in base comp doc etc kernel xorg; do
   cd /
-  sed 's/^/./' <$H/sets/$s |bsdcpio -o -H ustar |xz -e >$H/dist/$RELEASE/$s.tar.xz
+  cat $H/sets/$s $H/sets/$A/$s |sed 's/^/./' |bsdcpio -o -H ustar |xz -e >$H/dist/$RELEASE/$s.tar.xz
   ls -l $H/dist/$RELEASE/$s*
 done
 cd $H/dist/$RELEASE
