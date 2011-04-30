@@ -4,7 +4,7 @@
 . config
 
 rm -f sets/*~
-cat sets/* |sort |uniq >/tmp/cs-sets
+cat sets/* sets/$A/* |sort |uniq >/tmp/cs-sets
 cd $R
 find . | sed 's/^\.//' | egrep -v '^($|/dev/|/proc/|/tmp/|/root/|/src/linux-2.6|/sys/)' | sort >/tmp/cs-all
 
