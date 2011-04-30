@@ -35,7 +35,7 @@ make HOSTCFLAGS=-D_GNU_SOURCE -j8
 
 cp arch/$A/boot/bzImage ..
 cd ..
-cp bzImage sabotage-install-$REL.rd
+cp bzImage sabotage-$A-install-$REL.rd
 
 dd if=/dev/null of=media.img bs=1024 seek=150K
 fdisk media.img <<EOF ||true
