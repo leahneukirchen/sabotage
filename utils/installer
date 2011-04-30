@@ -1,6 +1,10 @@
 #!/bin/sh
 set -x -e
 
+. config
+
+REL=$(date -Idate)
+
 rm -rf /tmp/src/installer
 mkdir -p /tmp/src/installer
 cp -r installer /tmp/src/installer/root
@@ -17,6 +21,7 @@ strip -s bin/* || true
 cp /lib/syslinux/* lib/syslinux
 mknod -m 0644 dev/console c 5 1
 ln -s /proc/mounts  etc/mtab
+echo "export A=$A" >etc/config
 
 find . | cpio -o -H newc | xz --check=crc32 --lzma2=dict=512KiB >../initramfs.cpio.xz
 cd ..
@@ -28,9 +33,9 @@ cp /tmp/src/KEEP/kernel-INSTALL.config .config
 
 make HOSTCFLAGS=-D_GNU_SOURCE -j8 
 
-cp arch/$(uname -m)/boot/bzImage ..
+cp arch/$A/boot/bzImage ..
 cd ..
-cp bzImage sabotage-install-$(date -Idate).rd
+cp bzImage sabotage-install-$REL.rd
 
 dd if=/dev/null of=media.img bs=1024 seek=150K
 fdisk media.img <<EOF ||true
@@ -69,7 +74,7 @@ syslinux -i $DEV
 dd if=/usr/lib/syslinux/mbr.bin of=media.img conv=notrunc
 sync
 
-gzip <media.img >sabotage-netinstall-$(date -Idate).img.gz
+gzip <media.img >sabotage-$A-netinstall-$REL.img.gz
 
 mount $DEV media
 if [ -n "$DISTS" ]; then
@@ -82,4 +87,4 @@ umount media
 losetup -d $DEV
 sync
 
-gzip <media.img >sabotage-full-$(date -Idate).img.gz 
+gzip <media.img >sabotage-$A-full-$(date -Idate).img.gz

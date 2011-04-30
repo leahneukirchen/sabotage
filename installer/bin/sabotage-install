@@ -1,6 +1,8 @@
 #!/bin/sh
 # sabotage-install
 
+[ -f /etc/config ] && source /etc/config
+
 if ! mountpoint -q /mnt; then
   echo "Please mount your root partition as /mnt."
   exit 1
@@ -27,7 +29,7 @@ localwget() {
 
 RELEASES=
 while [ -z "$RELEASES" ]; do
-  ask MIRROR "Which mirror (or /installer)?" http://xmw.de/mirror/sabotage/
+  ask MIRROR "Which mirror (or /installer)?" http://xmw.de/mirror/sabotage/$A
 
   RELEASES=$(localwget "$MIRROR" | grep -o "sabotage[0-9-][0-9-]*" |sort |uniq)
 done
