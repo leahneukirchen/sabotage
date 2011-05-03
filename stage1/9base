@@ -1,7 +1,6 @@
 tarxf http://dl.suckless.org/tools/ 9base-6 .tar.gz
 echo "PREFIX = /" >>config.mk
 echo "CFLAGS += -D_GNU_SOURCE -DPLAN9PORT" >>config.mk
-echo "OBJTYPE = x86_64" >>config.mk
 
 sed -i 's/__linux__/__not_linux__/;s/__sun__/__linux__/' lib9/dirread.c
 sed -i '/sys.termios.h/d' lib9/readcons.c
