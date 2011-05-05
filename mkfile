@@ -12,6 +12,7 @@ help:QV:
         echo "  list            show all packages"
 
 PATH=utils:$PATH
+A=`utils/platform`
 <|sed 's/export//' config
 <deps
 <|recipes

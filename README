@@ -17,7 +17,6 @@ DO NOT RUN SCRIPTS YOU HAVE NOT READ.
 
 % cp KEEP/config.stage0 config
 % vi config
-  $A  architecture (x86_64 or i386)
   $K  directory with patches
   $S  where sources are compiled (stage0: ~700MB, stage1: ~2.1GB)
   $R  root file system
