@@ -1,14 +1,3 @@
---- m4-1.4.16.orig/lib/fpurge.c
-+++ m4-1.4.16/lib/fpurge.c
-@@ -130,7 +130,7 @@
-   fp->__put_limit = fp->__buffer;
-   return 0;
- # else
--#  error "Please port gnulib fpurge.c to your platform! Look at the definitions of fflush, setvbuf and ungetc on your system, then report this to bug-gnulib."
-+  return 0;
- # endif
- 
- #endif
 --- m4-1.4.16.orig/lib/freadahead.c
 +++ m4-1.4.16/lib/freadahead.c
 @@ -80,6 +80,6 @@
@@ -19,14 +8,3 @@
 +  return 1;
  #endif
  }
---- m4-1.4.16.orig/lib/freading.c
-+++ m4-1.4.16/lib/freading.c
-@@ -61,7 +61,7 @@
-   return (fp->__buffer < fp->__get_limit /*|| fp->__bufp == fp->__put_limit ??*/);
- #  endif
- # else
--#  error "Please port gnulib freading.c to your platform!"
-+  return 1;
- # endif
- }
- 
