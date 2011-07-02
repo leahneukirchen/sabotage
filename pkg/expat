@@ -1,4 +1,4 @@
 tarxf http://sourceforge.net/projects/expat/files/expat/2.0.1/ expat-2.0.1 .tar.gz
-CFLAGS=-D_GNU_SOURCE ./configure --prefix=/ --disable-shared --mandir=/share/man
+CFLAGS=-D_GNU_SOURCE ./configure --prefix=/ --mandir=/share/man
 make
 make DESTDIR=$R install
