@@ -3,7 +3,7 @@ sed -i 's/termio.h/termios.h/' hw/xfree86/os-support/xf86_OSlib.h
 # XXX implement me, for now cast float to int.
 sed -i 's/lroundf\?//' dix/getevents.c
 CFLAGS="-D__gid_t=gid_t -D__uid_t=uid_t -DNOFILES_MAX=256 -D_GNU_SOURCE -I/include/pixman-1" \
-  ./configure --prefix=/ --disable-shared \
+  ./configure --prefix=/ \
     --disable-glx --disable-dri \
     --disable-xorg \
     --enable-kdrive --enable-kdrive-evdev

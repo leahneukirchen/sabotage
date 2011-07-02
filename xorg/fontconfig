@@ -1,4 +1,4 @@
 tarxf http://www.freedesktop.org/software/fontconfig/release/ fontconfig-2.8.0 .tar.gz
-./configure --prefix=/ --disable-shared
+./configure --prefix=/
 make
 make DESTDIR=$R install

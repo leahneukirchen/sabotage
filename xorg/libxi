@@ -1,4 +1,4 @@
 tarxf ftp://ftp.x.org/pub/individual/lib/ libXi-1.4.2 .tar.bz2
-./configure --prefix=/ --disable-shared
+./configure --prefix=/
 make DESTDIR=$R install
 

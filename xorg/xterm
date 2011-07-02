@@ -7,5 +7,5 @@ cat <<EOF >>ptyx.h
 static inline int getpt() { return open("/dev/ptmx",O_RDWR|O_NOCTTY); }
 #endif
 EOF
-make LIBS="-lXaw7 -lXext -lXmu -lXpm -lXt -lSM -lICE -lX11 -lxcb -lXau -lXdmcp -lncurses"
+make
 make DESTDIR=$R install

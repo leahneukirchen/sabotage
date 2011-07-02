@@ -1,4 +1,4 @@
 tarxf ftp://ftp.x.org/pub/individual/lib/ libX11-1.4.3 .tar.bz2
-./configure --prefix=/ --disable-shared --disable-loadable-xcursor
+./configure --prefix=/ --disable-loadable-xcursor
 make DESTDIR=$R install
 

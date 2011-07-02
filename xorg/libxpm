@@ -1,5 +1,5 @@
 tarxf ftp://ftp.x.org/pub/individual/lib/ libXpm-3.5.9 .tar.bz2
 sed -i 's/USE_GETTEXT="yes"/USE_GETTEXT="no"/' configure
-./configure --prefix=/ --disable-shared
+./configure --prefix=/
 make DESTDIR=$R install
 

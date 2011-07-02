@@ -1,4 +1,4 @@
 tarxf ftp://ftp.x.org/pub/individual/lib/ libxkbfile-1.0.7 .tar.bz2
-./configure --prefix=/ --disable-shared
+./configure --prefix=/
 make DESTDIR=$R install
 

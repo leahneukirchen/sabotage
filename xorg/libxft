@@ -1,4 +1,4 @@
 tarxf http://xorg.freedesktop.org/releases/individual/lib/ libXft-2.2.0 .tar.bz2
-./configure --prefix=/ --disable-shared
+./configure --prefix=/
 make
 make DESTDIR=$R install

@@ -1,6 +1,6 @@
 tarxf http://xcb.freedesktop.org/dist/ libxcb-1.7 .tar.bz2
 mkdir hack
 cp /bin/cat hack/xsltproc
-PATH=hack:$PATH ./configure --prefix=/ --disable-shared --disable-build-docs
+PATH=hack:$PATH ./configure --prefix=/ --disable-build-docs
 make
 make DESTDIR=$R install

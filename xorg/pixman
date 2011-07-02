@@ -1,5 +1,5 @@
 tarxf ftp://ftp.x.org/pub/individual/lib/ pixman-0.21.6 .tar.bz2
-./configure --prefix=/ --disable-shared
-sed -i '/TOOLCHAIN_SUPPORTS_ATTRIBUTE_CONSTRUCTOR/d' config.h
+CFLAGS="-DPIXMAN_NO_TLS" ./configure --prefix=/
+sed -i -e '/TOOLCHAIN_SUPPORTS_ATTRIBUTE_CONSTRUCTOR/d' -e '/TOOLCHAIN_SUPPORTS__THREAD/d' config.h
 make
 make DESTDIR=$R install

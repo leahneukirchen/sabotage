@@ -1,4 +1,4 @@
 tarxf ftp://ftp.x.org/pub/individual/lib/ libXrender-0.9.6 .tar.bz2
-./configure --prefix=/ --disable-shared
+./configure --prefix=/
 make DESTDIR=$R install
 

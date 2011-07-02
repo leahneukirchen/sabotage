@@ -1,4 +1,4 @@
 tarxf ftp://ftp.x.org/pub/individual/lib/ libXext-1.2.0 .tar.bz2
-./configure --prefix=/ --disable-shared
+./configure --prefix=/
 make DESTDIR=$R install
 

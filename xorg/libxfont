@@ -1,4 +1,4 @@
 tarxf ftp://ftp.x.org/pub/individual/lib/ libXfont-1.4.3 .tar.bz2
-CFLAGS="-DNOFILES_MAX=256 -Dfd_mask=long" ./configure --prefix=/ --disable-shared 
+CFLAGS="-DNOFILES_MAX=256 -Dfd_mask=long" ./configure --prefix=/
 make DESTDIR=$R install
 
