@@ -1,4 +1,5 @@
 This is sabotage, an experimental distribution based on musl libc and busybox.
+As of this release, sabotage supports both i386 and x86_64.
 
 Requirements:
 - ~4G free disk space
@@ -9,6 +10,19 @@ Requirements:
 - lots of time and a fair bit of Linux knowledge
 
 This system has been built on up-to-date Gentoo, Exherbo and Arch systems.
+
+You can bootstrap your own build from the scripts at 
+
+               https://github.com/chneukirchen/sabotage
+
+or use a ready-to-boot disk image either for netinstall or with sets
+included (put it on an USB stick, burning a CD will not work), to be
+found at:
+
+           http://xmw.de/mirror/sabotage/sabotage-2011-04-30/
+
+You also can netboot the install kernel directly (use pxelinux from
+somewhere).
 
 READ THE COOKBOOK FIRST.
 
