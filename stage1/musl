@@ -1,6 +1,8 @@
 cd $S/musl
 
 git pull || true
+cp $K/musl.config.mak.stage1 config.mak
+
 make clean
 make CC=$R/bin/gcc
-make install
+make install DESTDIR=$R

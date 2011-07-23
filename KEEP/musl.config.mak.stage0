@@ -21,4 +21,4 @@ exec_prefix = $R
 #CFLAGS += -Werror -Wall -Wpointer-arith -Wcast-align -Wno-parentheses -Wno-char-subscripts -Wno-uninitialized -Wno-sequence-point -Wno-missing-braces -Wno-unused-value
 
 # Uncomment if you want to build a shared library (experimental).
-#LIBC_LIBS += lib/libc.so
+#SHARED_LIBS =
