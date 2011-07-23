@@ -6,14 +6,9 @@ for s in $R/etc/service/*; do
   ln -s /etc/service/${s##*/} ${s/etc/var}
 done
 
-mkdir -p $R/tmp/src
+cp -r $H $R/src/sabotage
 
-cp -r $K $R/tmp/src/KEEP
-cp -r $H $R/tmp/src/sabotage
-
-cp $K/config.stage1 $R/tmp/src/sabotage/config
-
-cp -r $S/*.tar.* $S/musl $R/tmp/src
+cp $K/config.stage1 $R/src/sabotage/config
 
 cp /etc/resolv.conf $R/etc
 ln -s /proc/mounts $R/etc/mtab
