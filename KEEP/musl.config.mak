@@ -20,5 +20,5 @@ exec_prefix = /
 # Uncomment for warnings (as errors). Might need tuning to your gcc version.
 #CFLAGS += -Werror -Wall -Wpointer-arith -Wcast-align -Wno-parentheses -Wno-char-subscripts -Wno-uninitialized -Wno-sequence-point -Wno-missing-braces -Wno-unused-value
 
-# Uncomment if you want to build a shared library (experimental).
-SHARED_LIBS =
+# Uncomment if you want to disable building the shared library.
+#SHARED_LIBS = 
