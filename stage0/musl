@@ -6,4 +6,4 @@ cp $K/musl.config.mak config.mak
 
 make CC=$R/bin/gcc
 make install DESTDIR=$R
-sed -i 's/libc_prefix=".*"/libc_prefix="'$R'"/' $R/bin/musl-gcc
+sed -i 's:libc_prefix=".*":libc_prefix="'$R'":' $R/bin/musl-gcc
