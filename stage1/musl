@@ -1,7 +1,7 @@
 cd $S/musl
 
 git pull || true
-cp $K/musl.config.mak.stage1 config.mak
+cp $K/musl.config.mak config.mak
 
 make clean
 make CC=$R/bin/gcc

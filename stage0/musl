@@ -2,7 +2,8 @@ cd $S
 rm -rf musl
 git clone git://git.etalabs.net/musl
 cd musl
-cp $K/musl.config.mak.stage0 config.mak
+cp $K/musl.config.mak config.mak
 
 make CC=$R/bin/gcc
-make install
+make install DESTDIR=$R
+sed -i 's/libc_prefix=".*"/libc_prefix="'$R'"/' $R/bin/musl-gcc
