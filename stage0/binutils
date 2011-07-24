@@ -1,4 +1,4 @@
-tarxf http://ftp.gnu.org/gnu/binutils/ binutils-2.21 .tar.bz2
+tarxf http://ftp.gnu.org/gnu/binutils/ binutils-2.21.1 .tar.bz2
 CC="$R/bin/musl-gcc -static" ./configure --prefix=/ --disable-nls
 echo "#define __pid_t int" >include/features.h
 make CC="$R/bin/musl-gcc -static"
