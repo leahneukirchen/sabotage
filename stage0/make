@@ -1,5 +1,5 @@
 tarxf http://ftp.gnu.org/gnu/make/ make-3.82 .tar.bz2
-CC=$R/bin/musl-gcc ./configure --prefix=/ --disable-nls
+CC="$R/bin/musl-gcc -static" ./configure --prefix=/ --disable-nls
 # __BEOS__ to use a shipped ar.h
-make CC=$R/bin/musl-gcc CFLAGS=-D__BEOS__
+make CC="$R/bin/musl-gcc -static" CFLAGS=-D__BEOS__
 make DESTDIR=$R install
