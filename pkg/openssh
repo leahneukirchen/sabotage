@@ -1,4 +1,4 @@
-tarxf http://ftp.spline.de/pub/OpenBSD/OpenSSH/portable/ openssh-5.8p1 .tar.gz
+tarxf http://ftp.spline.de/pub/OpenBSD/OpenSSH/portable/ openssh-5.8p2 .tar.gz
 
 cp $K/openssh-hacks.h .
 CC="gcc -include openssh-hacks.h -D_BSD_SOURCE -DMISSING_HOWMANY -DMISSING_FD_MASK -DMISSING_NFDBITS" ./configure --prefix=/ \
