@@ -1,4 +1,4 @@
-tarxf ftp://ftp.gmplib.org/pub/gmp-5.0.1/ gmp-5.0.1 .tar.bz2
-./configure --prefix=/ --disable-shared
+tarxf ftp://ftp.gmplib.org/pub/gmp-5.0.2/ gmp-5.0.2 .tar.bz2
+./configure --prefix=/
 make
 make DESTDIR=$R install
