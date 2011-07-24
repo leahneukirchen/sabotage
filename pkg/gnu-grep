@@ -1,4 +1,4 @@
-tarxf http://ftp.gnu.org/gnu/grep/ grep-2.7 .tar.gz
+tarxf http://ftp.gnu.org/gnu/grep/ grep-2.9 .tar.gz
 ./configure --prefix=/
 make
 make DESTDIR=$R install
