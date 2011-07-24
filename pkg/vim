@@ -1,6 +1,6 @@
 tarxf ftp://ftp.vim.org/pub/vim/unix/ vim-7.3 .tar.bz2 vim73
 
-PATCHLEVEL=159
+PATCHLEVEL=260
 for n in $(seq -w 001 $PATCHLEVEL); do
   echo "Grabbing patch $n/$PATCHLEVEL"
   wget -q -O - ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.$n | patch -p0
