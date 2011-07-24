@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<style>
+body { margin: 50px; padding-left: 440px; font-family: fixed, monospace; color: black; }
+a { color: black; font-weight: bold; }
+a:hover { text-decoration: underline; }
+img { position: absolute; top: 50px; left: 50px; width: 400px; }
+ul { margin: 0; padding: 0; }
+</style>
+
+<img src="sabotage.png">
+
+<p>
+This is <a href="https://github.com/chneukirchen/sabotage">sabotage</a>, an experimental distribution based on <a href="http://www.etalabs.net/musl/">musl libc</a> and <a href="http://www.busybox.net/">busybox</a>.
+As of this release, sabotage supports both i386 and x86_64.
+</p>
+<p>
+Requirements:
+<ul>
+<li>~4G free disk space
+<li>root access
+<li>usual GCC 4 toolchain
+<li>git
+<li>a bootloader of your choice (extlinux is favored)
+<li>lots of time and a fair bit of Linux knowledge
+</ul>
+</p>
+<p>
+Features:
+<ul>
+<li>Core system is statically linked
+<li>No /usr
+<li>runit-based service supervision
+<li>OpenBSD-style install sets (base, comp, doc, etc, kernel, xorg)
+</ul>
+<p>
+This system has been built on up-to-date Gentoo, Exherbo and Arch systems.
+</p>
+<p>
+You can bootstrap your own build from the scripts at
+</p>
+<center><a href="https://github.com/chneukirchen/sabotage">https://github.com/chneukirchen/sabotage</a></center>
+<p>
+or use a ready-to-boot disk image either for netinstall or with sets
+included (put it on an USB stick, burning a CD will not work), to be
+found at:
+</p>
+<center><a href="http://xmw.de/mirror/sabotage/">http://xmw.de/mirror/sabotage/</a></center>
+<p>
+You also can netboot the install kernel directly (use pxelinux from
+somewhere).
+</p>
+<p>
+READ <a href="https://raw.github.com/chneukirchen/sabotage/master/COOKBOOK">THE COOKBOOK</a> FIRST.
+</p>
+<p>
+There is a <a href="http://openwall.com/lists/sabotage/">mailinglist
+sabotage@lists.openwall.com</a>, mail
+sabotage-subscribe@lists.openwall.com and follow instructions to get
+on it.
+</p>
+<p>
+Sabotage has been released into the <a href="https://raw.github.com/chneukirchen/sabotage/master/LICENSE">public domain</a>.
+</p>
