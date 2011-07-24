@@ -1,6 +1,4 @@
-tarxf ftp://ftp.gnu.org/pub/gnu/gawk/ gawk-3.1.8 .tar.bz2
-# Hack out the test for dynamic linking
-sed -i 's/dlfcn/dlXXXXXcn/g' configure
+tarxf ftp://ftp.gnu.org/pub/gnu/gawk/ gawk-4.0.0 .tar.bz2
 ./configure --prefix=/ --libexecdir=/lib --disable-nls
 make
 make DESTDIR=$R install
