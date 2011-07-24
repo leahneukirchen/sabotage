@@ -1,6 +1,10 @@
 tarxf ftp://gcc.gnu.org/pub/gcc/releases/gcc-4.5.3/ gcc-core-4.5.3 .tar.bz2 gcc-4.5.3
 
 sed -i 's@\./fixinc\.sh@-c true@' gcc/Makefile.in
+
+sed -i 's@/lib/ld-linux.so.2@/lib/ld-musl-x86_64.so.1@' gcc/config/i386/linux64.h
+sed -i 's@/lib64/ld-linux-x86-64.so.2@/lib/ld-musl-x86_64.so.1@' gcc/config/i386/linux64.h
+
 CFLAGS=-D_GNU_SOURCE ./configure --with-newlib --with-headers=no --prefix=/ \
   --disable-multilib --disable-nls --disable-shared --disable-mudflap \
   --disable-libmudflap --disable-libssp --disable-libgomp \

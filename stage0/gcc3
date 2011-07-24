@@ -1,9 +1,11 @@
 tarxf http://ftp.gnu.org/gnu/gcc/gcc-3.4.6/ gcc-core-3.4.6 .tar.bz2 gcc-3.4.6
 
 sed -i 's@\./fixinc\.sh@-c true@' gcc/Makefile.in
+
+sed -i 's@/lib/ld-linux.so.[12]@/lib/ld-musl-i386.so.1@' gcc/config/i386/linux.h
+sed -i 's@/lib/ld-linux.so.[12]@/lib/ld-musl-i386.so.1@' gcc/config/i386/linux64.h
+sed -i 's@/lib64/ld-linux-x86-64.so.2@/lib/ld-musl-x86_64.so.1@' gcc/config/i386/linux64.h
+
 ./configure --prefix=/ --disable-multilib --disable-nls 
 make BOOT_LDFLAGS="-static" bootstrap
 make DESTDIR=$R install
-
-sed -i 's:-dynamic-linker /lib/[^ }]*:-dynamic-linker /lib/lib-musl-i386.so.1:g' $R/lib/gcc/$A-unknown-linux-gnu/3.4.6/specs
-sed -i 's:-dynamic-linker /lib64/[^ }]*:-dynamic-linker /lib/lib-musl-x86_64.so.1:g' $R/lib/gcc/$A-unknown-linux-gnu/3.4.6/specs
