@@ -3,8 +3,8 @@ tarxf http://www.kernel.org/pub/linux/utils/boot/syslinux/4.xx/ syslinux-4.04 .t
 sed -i '/#define statfs/d;/#undef statfs/d' libinstaller/linuxioctl.h
 
 make -C libinstaller
-make -C extlinux OPTFLAGS="-g -Os -D_GNU_SOURCE"
-make -C linux OPTFLAGS="-g -Os -D_GNU_SOURCE"
+make -C extlinux OPTFLAGS="-g -Os -D_GNU_SOURCE" LDFLAGS="-static"
+make -C linux OPTFLAGS="-g -Os -D_GNU_SOURCE" LDFLAGS="-static"
 
 cp extlinux/extlinux $R/bin
 cp linux/syslinux $R/bin
