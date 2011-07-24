@@ -3,6 +3,6 @@ tarxf http://ftp.gnu.org/pub/gnu/ncurses/ ncurses-5.9 .tar.gz
 # needs to block on fd 1 (which they assume to be a tty).
 CFLAGS=-D_GNU_SOURCE ./configure \
    --prefix=/ --includedir=/include --mandir=/share/man \
-   --disable-nls --without-dlsym --without-cxx-binding </dev/ptmx
+   --disable-nls --with-shared --without-cxx-binding </dev/ptmx
 make
 make DESTDIR=$R install
