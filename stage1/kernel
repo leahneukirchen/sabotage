@@ -1,8 +1,6 @@
-mkdir -p $R/src
-cd $R/src
-[ -f linux-2.6.38.2.tar.bz2 ] || wget -c http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.38.2.tar.bz2
-tar xf linux-2.6.38.2.tar.bz2
-ln -sf linux-2.6.38.2 linux
+tarxf http://www.kernel.org/pub/linux/kernel/v3.0/ linux-3.0 .tar.bz2
+cd /src
+ln -sf linux-3.0 linux
 cd linux
 
 cp $K/kernel.config .config
