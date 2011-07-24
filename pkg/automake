@@ -1,4 +1,4 @@
-tarxf ftp://ftp.gnu.org/pub/gnu/automake/ automake-1.11 .tar.bz2
+tarxf ftp://ftp.gnu.org/pub/gnu/automake/ automake-1.11.1 .tar.bz2
 ./configure --prefix=/
 make
 make DESTDIR=$R install
