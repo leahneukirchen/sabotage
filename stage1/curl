@@ -1,5 +1,5 @@
-tarxf http://curl.haxx.se/download/ curl-7.21.4 .tar.bz2
+tarxf http://curl.haxx.se/download/ curl-7.21.7 .tar.bz2
 
-./configure --prefix=/ --disable-shared --enable-ipv6 --with-random=/dev/urandom
+./configure --prefix=/ --enable-ipv6 --with-random=/dev/urandom
 make
 make DESTDIR=$R install
