@@ -1,4 +1,4 @@
-tarxf http://www.greenwoodsoftware.com/less/ less-436 .tar.gz
+tarxf http://www.greenwoodsoftware.com/less/ less-444 .tar.gz
 ./configure --prefix=/
 make
 make DESTDIR=$R install
