@@ -1,4 +1,4 @@
-tarxf http://www.busybox.net/downloads/ busybox-1.18.4 .tar.bz2
+tarxf http://www.busybox.net/downloads/ busybox-1.18.5 .tar.bz2
 
 cp $K/busybox.stage1.config .config
 patch -p1 <$K/busybox.patch
