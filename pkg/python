@@ -1,7 +1,5 @@
-tarxf http://python.org/ftp/python/2.7.1/ Python-2.7.1 .tar.bz2
+tarxf http://python.org/ftp/python/2.7.2/ Python-2.7.2 .tar.bz2
 # we don't have lround on i386, thus -fno-builtin.
 CFLAGS="-fno-builtin" ./configure --prefix=/
-cp $K/python-Modules.Setup Modules/Setup
 make
-# Some modules don't compile.
-make DESTDIR=$R -k install || true
+make DESTDIR=$R install
