@@ -8,6 +8,7 @@ done
 
 cp -r $H $R/src/sabotage
 
+cp -r $S/*.tar.* $S/musl $R/src
 cp $K/config.stage1 $R/src/sabotage/config
 
 cp /etc/resolv.conf $R/etc
