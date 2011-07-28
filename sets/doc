@@ -238,7 +238,6 @@
 /share/man/man1/perlamiga.1perl
 /share/man/man1/perlapi.1perl
 /share/man/man1/perlapio.1perl
-/share/man/man1/perlapollo.1perl
 /share/man/man1/perlartistic.1perl
 /share/man/man1/perlbeos.1perl
 /share/man/man1/perlbook.1perl
@@ -337,7 +336,6 @@
 /share/man/man1/perlref.1perl
 /share/man/man1/perlreftut.1perl
 /share/man/man1/perlreguts.1perl
-/share/man/man1/perlrepository.1perl
 /share/man/man1/perlrequick.1perl
 /share/man/man1/perlreref.1perl
 /share/man/man1/perlretut.1perl
@@ -862,7 +860,6 @@
 /share/man/man3/CRYPTO_set_ex_data.3
 /share/man/man3/CRYPTO_set_locking_callback.3
 /share/man/man3/Carp.3perl
-/share/man/man3/Class::ISA.3perl
 /share/man/man3/Class::Struct.3perl
 /share/man/man3/Compress::Raw::Bzip2.3perl
 /share/man/man3/Compress::Raw::Zlib.3perl
@@ -1522,7 +1519,6 @@
 /share/man/man3/Pod::Perldoc::ToTk.3perl
 /share/man/man3/Pod::Perldoc::ToXml.3perl
 /share/man/man3/Pod::PlainText.3perl
-/share/man/man3/Pod::Plainer.3perl
 /share/man/man3/Pod::Select.3perl
 /share/man/man3/Pod::Simple.3perl
 /share/man/man3/Pod::Simple::Checker.3perl
@@ -1842,7 +1838,6 @@
 /share/man/man3/Shell.3perl
 /share/man/man3/Socket.3perl
 /share/man/man3/Storable.3perl
-/share/man/man3/Switch.3perl
 /share/man/man3/Symbol.3perl
 /share/man/man3/Sys::Hostname.3perl
 /share/man/man3/Sys::Syslog.3perl
@@ -1881,7 +1876,6 @@
 /share/man/man3/TAP::Parser::Scheduler::Job.3perl
 /share/man/man3/TAP::Parser::Scheduler::Spinner.3perl
 /share/man/man3/TAP::Parser::Source.3perl
-/share/man/man3/TAP::Parser::Source::Perl.3perl
 /share/man/man3/TAP::Parser::Utils.3perl
 /share/man/man3/TAP::Parser::YAMLish::Reader.3perl
 /share/man/man3/TAP::Parser::YAMLish::Writer.3perl

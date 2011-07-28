@@ -6,7 +6,7 @@
 rm -f sets/*~
 cat sets/* sets/$A/* |sort |uniq >/tmp/cs-sets
 cd $R
-find . | sed 's/^\.//' | egrep -v '^($|/dev/|/proc/|/tmp/|/root/|/src/linux-2.6|/sys/)' | sort >/tmp/cs-all
+find . | sed 's/^\.//' | egrep -v '^($|/dev/|/proc/|/tmp/|/root/|/src|/sys/)' | sort >/tmp/cs-all
 
 comm -13 /tmp/cs-all /tmp/cs-sets >/tmp/cs-missing
 comm -23 /tmp/cs-all /tmp/cs-sets >/tmp/cs-superfluous
