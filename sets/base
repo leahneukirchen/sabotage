@@ -699,6 +699,9 @@
 /lib/git-core/git-whatchanged
 /lib/git-core/git-write-tree
 /lib/ld-musl-x86_64.so.1
+/lib/libarchive.so
+/lib/libarchive.so.2
+/lib/libarchive.so.2.8.4
 /lib/libc.so
 /lib/libcrypto.so
 /lib/libcrypto.so.1.0.0
