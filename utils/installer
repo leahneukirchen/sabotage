@@ -29,7 +29,7 @@ cd ..
 # XXX find best version
 tar xf /src/linux-*.tar.bz2
 cd linux-*
-cp /tmp/src/KEEP/kernel-INSTALL-$A.config .config
+cp /src/sabotage/KEEP/kernel-INSTALL-$A.config .config
 
 make HOSTCFLAGS=-D_GNU_SOURCE -j8 
 
