@@ -2,6 +2,7 @@
 
 cpp -P <<EOF | grep -v "^$"
 #ifdef __i386__
+#undef i386
 i386
 #elif __amd64__
 x86_64
