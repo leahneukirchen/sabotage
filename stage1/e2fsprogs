@@ -2,6 +2,6 @@ tarxf http://prdownloads.sourceforge.net/e2fsprogs/ e2fsprogs-1.41.14 .tar.gz
 
 ./configure --prefix=/ --with-root-prefix="" --sbindir=/bin --disable-nls --disable-tls
 sed -i 's:sys/signal.h:signal.h:' misc/fsck.c
-make CFLAGS="-D_GNU_SOURCE -include math.h -Dopen64=open"
+make CFLAGS="-D_GNU_SOURCE -include math.h -Dopen64=open" LDFLAGS="-static"
 # dont fail because of makeinfo
 make DESTDIR=$R install -k

@@ -79,7 +79,7 @@ gzip <media.img >sabotage-$A-netinstall-$REL.img.gz
 mount $DEV media
 if [ -n "$DISTS" ]; then
   (
-  cd /tmp/src/sabotage/dist
+  cd /src/sabotage/dist
   cp -r $DISTS /tmp/src/installer/media
   )
 fi
