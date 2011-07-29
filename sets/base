@@ -698,7 +698,6 @@
 /lib/git-core/git-web--browse
 /lib/git-core/git-whatchanged
 /lib/git-core/git-write-tree
-/lib/ld-musl-x86_64.so.1
 /lib/libarchive.so
 /lib/libarchive.so.2
 /lib/libarchive.so.2.8.4
@@ -1137,10 +1136,6 @@
 /lib/perl5/core_perl/threads/shared.pm
 /lib/perl5/site_perl
 /lib/perl5/site_perl/5.14.1
-/lib/perl5/site_perl/5.14.1/x86_64-linux
-/lib/perl5/site_perl/5.14.1/x86_64-linux/auto
-/lib/perl5/site_perl/5.14.1/x86_64-linux/auto/Git
-/lib/perl5/site_perl/5.14.1/x86_64-linux/auto/Git/.packlist
 /lib/perl5/site_perl/Error.pm
 /lib/perl5/site_perl/Git.pm
 /lib/perl5/site_perl/POSIX.pm

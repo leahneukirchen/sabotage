@@ -64,6 +64,7 @@
 /lib/gcc/i686-pc-linux-gnu/4.5.3/install-tools/mkheaders.conf
 /lib/gcc/i686-pc-linux-gnu/4.5.3/install-tools/mkinstalldirs
 /lib/gcc/i686-pc-linux-gnu/4.5.3/libgcc.a
+/lib/gcc/i686-pc-linux-gnu/4.5.3/libgcc_eh.a
 /lib/gcc/i686-pc-linux-gnu/4.5.3/libgcov.a
 /lib/gcc/i686-pc-linux-gnu/4.5.3/lto-wrapper
 /lib/ldscripts
