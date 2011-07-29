@@ -3,3 +3,5 @@
 /lib/perl5/site_perl/5.14.1/i686-linux/auto
 /lib/perl5/site_perl/5.14.1/i686-linux/auto/Git
 /lib/perl5/site_perl/5.14.1/i686-linux/auto/Git/.packlist
+/lib/python2.7/lib-dynload/imageop.so
+/lib/python2.7/lib-dynload/dl.so
